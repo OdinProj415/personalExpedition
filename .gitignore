@@ -1,0 +1,3 @@
+# Ignore Chrome/Puppeteer cache folders
+*~/.cache/
+user-data/
