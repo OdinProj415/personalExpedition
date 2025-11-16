@@ -3,7 +3,7 @@
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Vend+Sans:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chilanka&family=Vend+Sans:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,7 @@
     <title>Algebrators</title>
 
     <style>
-    h1 {
+    #title {
         font-family: "Vend Sans", sans-serif;
         font-optical-sizing: auto;
         font-weight: 400;
@@ -19,18 +19,59 @@
     }
 
 
-    .code-style {
-        display: block;
-        padding: 8px;
-        background-color: azure;
-    }
+    #content-block {
+    background-color: #F7F7F7;
+    border-radius: 8px;
+
+    border-top: 1px solid #E0E0E0;
+    border-left: 1px solid #E0E0E0;
+
+    border-right: 5px solid #AAAAAA;
+    border-bottom: 5px solid #AAAAAA;
+
+    font-family: "Chilanka", "Comic Sans MS", "Apple Chancery", "Bradley Hand", cursive, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.6;
+    color: #333;
+    display: block;
+    padding: 8px;
+}
     </style>
 </head>
 <body>
-    <h1>Template</h1>
-    <div class="code-style">
-        This is an example article explaining what needs to be learned in this lesson. This will help people understand more algebra 1 or will teach them pre algebra. the same is tue vice versa.
-    </div>
+    <h1 id="title">Loading Page Title...</h1>
+    <p id="content-block">
+        Loading Page Content...
+    </p>
+    <script>
+        let lessonNo = 0;
+        async function loadPage(pageNumber) {
+            let response = await fetch("prealgebra.json");
+            if (!response.ok) {
+                throw new Error('HTTP error! Status: ' + response.status);
+                
+            }
+            let course = response.json();
+            let page = course[parseInt(pageNumber)];
+            return page;
+        } 
+        function getPage(pageNumber) {
+             let content = [{
+                    "id":"1",
+                    "title":"What is Pre Algebra?",
+                    "content":"“Pre-algebra is a part of mathematics which is studied typically in the United States. It is usually taught in 8th grade to prepare students for algebra, geometry, and other subjects that are taught in high school. Pre-algebra helps students understand variables and graphs. Pre-algebra often deals with basic math, while adding letters, commonly used are x and y.” <br/> <br/> - Wikipedia"
+                }]
+                return content[pageNumber];
+
+        }
+        pageContent = loadPage(lessonNo);
+        // pageContent = getPage(lessonNo);
+        let title = document.getElementById("title");
+        let lesson = document.getElementById("content-block");
+        title.innerHTML = pageContent.title;
+        lesson.innerHTML = pageContent.content;
+    </script>
     
 </body>
 </html>
