@@ -8,18 +8,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Algebrators</title>
     <style>
-    .vend-sans-font {
-        font-family: "Vend Sans", sans-serif;
-        font-optical-sizing: auto;
-        font-weight: 400;
-        font-style: normal;
-    }
+        * {
+            font-family: "Vend Sans", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+        }
     </style>
 </head>
 <body>
     <!-- Use document.getelementbyid("welcome") to replace with google account username-->
-    <h1 id="welcome" class="vend-sans-font">Welcome, Shiv</h1>
-    <a href="./lessons/template.html"><button>Start form the beginning</button></a>
+    <h1 id="welcome" class="vend-sans-font">Welcome!</h1>
+    <script>
+        console.log("I got here");
+        let welcome = document.getElementById("welcome");
+        console.log("I got here");
+        const requestedUserInfo = [ 
+            {id:"username", label:"Username:", type:"text", default:"JohnDoe123"},
+            {id:"password", label:"Password:", type:"password", default:"myPassword123!"},
+            {id:"email", label:"Email Address:", type:"email", default:"account@domain.tld"},
+            {id:"name", label:"Name:", type:"text", default:"JohnDoe"}
+        ];
+        /* Make the div surrounding the form */
+        const formdiv = document.createElement("div");
+        formdiv.id = "form-div";
+        /* Make the form that asks for userinfo */
+        const formtag = document.createElement("form");
+        formtag.id = "form-form";
+        /* Add the form that asks for userinfo inside of the div */
+        formdiv.appendChild(formtag);
+        /* Add the div and the form inside it */
+
+        requestedUserInfo.forEach(inputInfo => {
+            const inputcontainer = document.createElement("div");
+            
+            const label = document.createElement("label");
+            label.htmlFor = inputInfo.id;
+            label.textContent = inputInfo.label;
+
+            const input = document.createElement("input");
+            input.type = inputInfo.type;
+            input.id = inputInfo.id;
+            input.placeholder = inputInfo.default;
+            input.required = true;
+
+            inputcontainer.appendChild(label);
+            inputcontainer.appendChild(input);
+
+            formtag.appendChild(inputcontainer);
+        });
+        const submit = document.createElement("button");
+        submit.type = "submit";
+        submit.textContent = "Personalize!";
+        formtag.appendChild(submit);
+        document.body.appendChild(formdiv);
+        console.log("I got here 4");
+
+        formtag.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const User = {};
+            requestedUserInfo.forEach(inputInfo => {
+                const inputElement = document.getElementById(inputInfo.id);
+                User[inputInfo.id] = inputElement.value;
+            });
+            console.log("I got here 5");
+            formdiv.style.display = "none";
+            welcome.textContent = `Welcome, ${User.name}`;
+        })
+    </script>
+    <a href="./lessons/template.html"><button>Start from the beginning</button></a>
     
 </body>
 </html>
