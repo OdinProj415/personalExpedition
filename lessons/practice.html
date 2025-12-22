@@ -19,7 +19,7 @@
     }
 
 
-    #content-block {
+    #content {
     background-color: #f7f7f7;
     border-radius: 8px;
     border-top: 1px solid #e0e0e0;
@@ -37,19 +37,7 @@
     </style>
 </head>
 <body>
-    <h1 id="title">Loading Page Title...</h1>
-    <div id="content-block">
-        Loading Page Content...
-    </div>
-    <button id="back">Back</button>
-    <button id="skip">Skip Practice</button>
-    <form action="./practice.html?lessonindex=0" method="get">
-        <button type="submit">Practice Concept</button>
-    </form>
     <script>
-        let pageHTML;
-        let titledoc = document.getElementById("title");
-        let lessondoc = document.getElementById("content-block");
         let lessonIndex = 0;
         /* Fetch data and return lesson as an object */
         async function loadPage(lessonIndex) {
@@ -63,13 +51,9 @@
                 console.error("Error!", error);
             }
         }
-        let page = loadPage(lessonIndex);
-        let questions;
-        page.then(page => {
-            // console.log(page);
-            titledoc.innerHTML = page.title;
-            lessondoc.innerHTML = page.content;
-            questions = page.practice;
+        page = loadPage(lessonIndex);
+        page.then((page)=>{
+            document.write(page.title);
         })
     </script>
     
