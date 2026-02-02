@@ -39,16 +39,36 @@
 <body>
     <h1 id="title">Loading Page Title...</h1>
     <p id="question">Loading Question</p>
-    <form action=""></form>
+    <button id="1">Loading...</button>
+    <button id="2">Loading...</button>
+    <button id="3">Loading...</button>
+    <button id="4">Loading...</button>
     <script>
         let lessonIndex = 0;
+        let isAnswered = false;
+        let masteryMode = true;
         /* Fetch data and return lesson as an object */
         async function loadPage(lessonIndex) {
             try {
                 const response = await fetch("prealgebra.json");
                 const course = await response.json();
                 const page = course[lessonIndex];
-                console.log(`content ${page.content} title ${page.title}`);
+                console.log(`
+                Content: \n 
+                ${page.content} \n 
+                \n \n 
+                Title: \n 
+                ${page.title} \n 
+                \n \n 
+                Practice: \n 
+                ${page.practice.question} \n 
+                \n \n
+                Options: \n 
+                ${page.practice.options[0].text}, ${page.practice.options[0].isCorrect}, ${page.practice.options[0].feedback} \n
+                ${page.practice.options[1].text}, ${page.practice.options[1].isCorrect}, ${page.practice.options[1].feedback} \n 
+                ${page.practice.options[2].text}, ${page.practice.options[2].isCorrect}, ${page.practice.options[2].feedback} \n
+                ${page.practice.options[3].text}, ${page.practice.options[3].isCorrect}, ${page.practice.options[3].feedback}
+                `);
                 return page;
             } catch (error){
                 console.error("Error!", error);
@@ -57,7 +77,27 @@
         page = loadPage(lessonIndex);
         page.then((page)=>{
             document.write(page.title);
-        })
+        });
+        let questions = {};
+        questions.a = document.getElementById("1");
+        questions.b = document.getElementById("2");
+        questions.c = document.getElementById("3");
+        questions.d = document.getElementById("4");
+        questions.a.addEventListener("click",function() {
+            page.then((page) => {
+                if (page.practice.options[1].isCorrect) {
+                    questions.a.style.color = "darkgreen";
+                    questions.a.style.backgroundColor = "green";
+                    isAnswered = true;
+                } else {
+                    if (masteryMode === false) {
+                        isAnswered = true;
+                    }
+                    questions.a.style.color = "maroon";
+                    questions.a.style.backgroundColor = "red";
+                }
+            });
+        });
     </script>
     
 </body>

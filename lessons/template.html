@@ -44,7 +44,7 @@
     <button id="back">Back</button>
     <button id="skip">Skip Practice</button>
     <form action="./practice.html" method="get">
-        <button type="submit"> &starf; Practice Concept &starf;</button>
+        <button type="submit" id="practice"> &starf; Practice Concept &starf;</button>
     </form>
     <script>
         let pageHTML;
@@ -70,6 +70,12 @@
             titledoc.innerHTML = page.title;
             lessondoc.innerHTML = page.content;
             questions = page.practice;
+        })
+        const practice = document.getElementById("practice");
+        const next = document.getElementById("next");
+        const back = document.getElementById("back"); 
+        next.addEventListener("click", function(event) {
+            lessonIndex++;
         })
     </script>
     
