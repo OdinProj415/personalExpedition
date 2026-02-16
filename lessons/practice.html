@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Chilanka&family=Vend+Sans:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Chilanka&family=Vend+Sans:ital,wght@0,300..700;1,300..700&display=swap"
+        rel="stylesheet">
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,38 +14,39 @@
     <title>Algebrators</title>
 
     <style>
-    #title {
-        font-family: "Vend Sans", sans-serif;
-        font-optical-sizing: auto;
-        font-weight: 400;
-        font-style: normal;
-    }
+        #title {
+            font-family: "Vend Sans", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+        }
 
 
-    #content {
-    background-color: #f7f7f7;
-    border-radius: 8px;
-    border-top: 1px solid #e0e0e0;
-    border-left: 1px solid #e0e0e0;
-    border-right: 5px solid #aaa;
-    border-bottom: 5px solid #aaa;
-    font-family: "Chilanka", "Comic Sans MS", "Apple Chancery", "Bradley Hand", cursive, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 1.6;
-    color: #333;
-    display: block;
-    padding: 8px;
-}
+        #content {
+            background-color: #f7f7f7;
+            border-radius: 8px;
+            border-top: 1px solid #e0e0e0;
+            border-left: 1px solid #e0e0e0;
+            border-right: 5px solid #aaa;
+            border-bottom: 5px solid #aaa;
+            font-family: "Chilanka", "Comic Sans MS", "Apple Chancery", "Bradley Hand", cursive, sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            line-height: 1.6;
+            color: #333;
+            display: block;
+            padding: 8px;
+        }
     </style>
 </head>
+
 <body>
     <h1 id="title">Loading Page Title...</h1>
     <p id="question">Loading Question</p>
-    <button id="1">Loading...</button>
-    <button id="2">Loading...</button>
-    <button id="3">Loading...</button>
-    <button id="4">Loading...</button>
+    <button id="1" class="unanswered">Loading...</button>
+    <button id="2" class="unanswered">Loading...</button>
+    <button id="3" class="unanswered">Loading...</button>
+    <button id="4" class="unanswered">Loading...</button>
     <script>
         let lessonIndex = 0;
         let isAnswered = false;
@@ -70,35 +74,49 @@
                 ${page.practice.options[3].text}, ${page.practice.options[3].isCorrect}, ${page.practice.options[3].feedback}
                 `);
                 return page;
-            } catch (error){
+            } catch (error) {
                 console.error("Error!", error);
             }
         }
         page = loadPage(lessonIndex);
-        page.then((page)=>{
-            document.write(page.title);
-        });
         let questions = {};
+        title = document.getElementById("title");
+        question = document.getElementById("question");
         questions.a = document.getElementById("1");
         questions.b = document.getElementById("2");
         questions.c = document.getElementById("3");
         questions.d = document.getElementById("4");
-        questions.a.addEventListener("click",function() {
+        console.log(`Title element: \n ${title} \n Question: \n ${question} \n opttions \n ${questions}`);
+        page.then((page) => {
+            title.innerText = page.title;
+            question.innerText = page.practice.question;
+            questions.a.innerText = page.practice.options[0].text;
+            questions.b.innerText = page.practice.options[1].text;
+            questions.c.innerText = page.practice.options[2].text;
+            questions.d.innerText = page.practice.options[3].text;
+        });
+        let verify = function (number, letter) {
+            if (event != "click") return;
             page.then((page) => {
-                if (page.practice.options[1].isCorrect) {
-                    questions.a.style.color = "darkgreen";
-                    questions.a.style.backgroundColor = "green";
+                if (page.practice.options[number].isCorrect) {
+                    questions[letter].style.color = "darkgreen";
+                    questions[letter].style.backgroundColor = "green";
                     isAnswered = true;
                 } else {
                     if (masteryMode === false) {
                         isAnswered = true;
                     }
-                    questions.a.style.color = "maroon";
-                    questions.a.style.backgroundColor = "red";
+                    questions[letter].style.color = "maroon";
+                    questions[letter].style.backgroundColor = "red";
                 }
             });
-        });
+        };
+        questions.a.addEventListener("click", verify(0, "a", event));
+        questions.b.addEventListener("click", verify(1, "b", event));
+        questions.b.addEventListener("click", verify(2, "c", event));
+        questions.b.addEventListener("click", verify(3, "d", event));
     </script>
-    
+
 </body>
+
 </html>
