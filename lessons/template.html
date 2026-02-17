@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Chilanka&family=Vend+Sans:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Chilanka&family=Vend+Sans:ital,wght@0,300..700;1,300..700&display=swap"
+        rel="stylesheet">
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,31 +14,32 @@
     <title>Algebrators</title>
 
     <style>
-    #title {
-        font-family: "Vend Sans", sans-serif;
-        font-optical-sizing: auto;
-        font-weight: 400;
-        font-style: normal;
-    }
+        #title {
+            font-family: "Vend Sans", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+        }
 
 
-    #content-block {
-    background-color: #f7f7f7;
-    border-radius: 8px;
-    border-top: 1px solid #e0e0e0;
-    border-left: 1px solid #e0e0e0;
-    border-right: 5px solid #aaa;
-    border-bottom: 5px solid #aaa;
-    font-family: "Chilanka", "Comic Sans MS", "Apple Chancery", "Bradley Hand", cursive, sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 1.6;
-    color: #333;
-    display: block;
-    padding: 8px;
-}
+        #content-block {
+            background-color: #f7f7f7;
+            border-radius: 8px;
+            border-top: 1px solid #e0e0e0;
+            border-left: 1px solid #e0e0e0;
+            border-right: 5px solid #aaa;
+            border-bottom: 5px solid #aaa;
+            font-family: "Chilanka", "Comic Sans MS", "Apple Chancery", "Bradley Hand", cursive, sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            line-height: 1.6;
+            color: #333;
+            display: block;
+            padding: 8px;
+        }
     </style>
 </head>
+
 <body>
     <h1 id="title">Loading Page Title...</h1>
     <div id="content-block">
@@ -51,33 +55,45 @@
         let titledoc = document.getElementById("title");
         let lessondoc = document.getElementById("content-block");
         let lessonIndex = 0;
-        /* Fetch data and return lesson as an object */
+        let page;
         async function loadPage(lessonIndex) {
             try {
                 const response = await fetch("prealgebra.json");
                 const course = await response.json();
                 const page = course[lessonIndex];
-                console.log(`content ${page.content} title ${page.title}`);
-                return page;
-            } catch (error){
+                console.log(`Content: \n\n ${page.content} \n\n\nTitle: \n\n ${page.title}`);
+                console.log(page);
+                titledoc.innerHTML = page.title;
+                lessondoc.innerHTML = page.content;
+                return;
+            } catch (error) {
                 console.error("Error!", error);
             }
-        }
-        let page = loadPage(lessonIndex);
-        let questions;
-        page.then(page => {
-            // console.log(page);
-            titledoc.innerHTML = page.title;
-            lessondoc.innerHTML = page.content;
-            questions = page.practice;
-        })
-        const practice = document.getElementById("practice");
-        const next = document.getElementById("next");
-        const back = document.getElementById("back"); 
-        next.addEventListener("click", function(event) {
+        };
+        function goNext() {
             lessonIndex++;
-        })
+            loadPage(lessonIndex);
+            return;
+        }
+        function goBack() {
+            lessonIndex--;
+            if (lessonIndex > -1) {
+                loadPage(lessonIndex);
+                return;
+            } else {
+                lessonIndex++;
+                console.error("No more lessonss behind");
+                return;
+            };
+        }
+        loadPage(lessonIndex)
+        const practice = document.getElementById("practice");
+        const next = document.getElementById("skip");
+        const back = document.getElementById("back");
+        next.addEventListener("click", () => goNext());
+        back.addEventListener("click", () => goBack());
     </script>
-    
+
 </body>
+
 </html>

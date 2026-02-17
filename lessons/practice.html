@@ -96,7 +96,6 @@
             questions.d.innerText = page.practice.options[3].text;
         });
         let verify = function (number, letter) {
-            if (event != "click") return;
             page.then((page) => {
                 if (page.practice.options[number].isCorrect) {
                     questions[letter].style.color = "darkgreen";
@@ -111,10 +110,10 @@
                 }
             });
         };
-        questions.a.addEventListener("click", verify(0, "a", event));
-        questions.b.addEventListener("click", verify(1, "b", event));
-        questions.b.addEventListener("click", verify(2, "c", event));
-        questions.b.addEventListener("click", verify(3, "d", event));
+        questions.a.addEventListener("click", () => verify(0, "a"));
+        questions.b.addEventListener("click", () => verify(1, "b"));
+        questions.c.addEventListener("click", () => verify(2, "c"));
+        questions.d.addEventListener("click", () => verify(3, "d"));
     </script>
 
 </body>
