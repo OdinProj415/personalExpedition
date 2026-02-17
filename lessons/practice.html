@@ -49,7 +49,7 @@
     <button id="4" class="unanswered">Loading...</button>
     <script>
         const urlvars = new URLSearchParams(window.location.search);
-        const lessonIndex = parseInt(urlvars.get("li"), 10)
+        const lessonIndex = parseInt(urlvars.get("li"), 10);
         let isAnswered = false;
         let masteryMode = true;
         async function loadPage(lessonIndex) {
