@@ -48,25 +48,19 @@
     <button id="3" class="unanswered">Loading...</button>
     <button id="4" class="unanswered">Loading...</button>
     <script>
-        let lessonIndex = 0;
+        const urlvars = new URLSearchParams(window.location.search);
+        const lessonIndex = parseInt(urlvars.get("li"), 10)
         let isAnswered = false;
         let masteryMode = true;
-        /* Fetch data and return lesson as an object */
         async function loadPage(lessonIndex) {
             try {
                 const response = await fetch("prealgebra.json");
                 const course = await response.json();
                 const page = course[lessonIndex];
                 console.log(`
-                Content: \n 
-                ${page.content} \n 
-                \n \n 
-                Title: \n 
-                ${page.title} \n 
-                \n \n 
-                Practice: \n 
-                ${page.practice.question} \n 
-                \n \n
+                Content: \n ${page.content} \n \n \n 
+                Title: \n ${page.title} \n  \n \n 
+                Practice: \n ${page.practice.question} \n \n \n
                 Options: \n 
                 ${page.practice.options[0].text}, ${page.practice.options[0].isCorrect}, ${page.practice.options[0].feedback} \n
                 ${page.practice.options[1].text}, ${page.practice.options[1].isCorrect}, ${page.practice.options[1].feedback} \n 

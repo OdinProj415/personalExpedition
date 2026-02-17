@@ -47,9 +47,7 @@
     </div>
     <button id="back">Back</button>
     <button id="skip">Skip Practice</button>
-    <form action="./practice.html" method="get">
-        <button type="submit" id="practice"> &starf; Practice Concept &starf;</button>
-    </form>
+    <button id="practice"> &starf; Practice Concept &starf;</button>
     <script>
         let pageHTML;
         let titledoc = document.getElementById("title");
@@ -65,14 +63,19 @@
                 console.log(page);
                 titledoc.innerHTML = page.title;
                 lessondoc.innerHTML = page.content;
-                return;
+                return page;
             } catch (error) {
                 console.error("Error!", error);
             }
         };
         function goNext() {
             lessonIndex++;
-            loadPage(lessonIndex);
+            const page = loadPage(lessonIndex);
+            page.then((page) => {
+                if (!page.content) {
+                    goBack();
+                };
+            });
             return;
         }
         function goBack() {
@@ -86,12 +89,16 @@
                 return;
             };
         }
+        function redirect(lessonIndex) {
+            window.location.href = `./practice.html?li=${lessonIndex}`;
+        };
         loadPage(lessonIndex)
         const practice = document.getElementById("practice");
         const next = document.getElementById("skip");
         const back = document.getElementById("back");
         next.addEventListener("click", () => goNext());
         back.addEventListener("click", () => goBack());
+        practice.addEventListener("click", () => redirect(lessonIndex));
     </script>
 
 </body>
