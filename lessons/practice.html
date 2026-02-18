@@ -52,7 +52,7 @@
         const lessonIndex = parseInt(urlvars.get("li"), 10);
         let isAnswered = false;
         let masteryMode = true;
-        async function loadPage(lessonIndex) {
+        async function loadPage(lessonIndex, questionNo) {
             try {
                 const response = await fetch("prealgebra.json");
                 const course = await response.json();
@@ -60,19 +60,19 @@
                 console.log(`
                 Content: \n ${page.content} \n \n \n 
                 Title: \n ${page.title} \n  \n \n 
-                Practice: \n ${page.practice.question} \n \n \n
+                Practice: \n ${page.practice[questionNo].question} \n \n \n
                 Options: \n 
-                ${page.practice.options[0].text}, ${page.practice.options[0].isCorrect}, ${page.practice.options[0].feedback} \n
-                ${page.practice.options[1].text}, ${page.practice.options[1].isCorrect}, ${page.practice.options[1].feedback} \n 
-                ${page.practice.options[2].text}, ${page.practice.options[2].isCorrect}, ${page.practice.options[2].feedback} \n
-                ${page.practice.options[3].text}, ${page.practice.options[3].isCorrect}, ${page.practice.options[3].feedback}
+                ${page.practice[questionNo].options[0].text}, ${page.practice[questionNo].options[0].isCorrect}, ${page.practice[questionNo].options[0].feedback} \n
+                ${page.practice[questionNo].options[1].text}, ${page.practice[questionNo].options[1].isCorrect}, ${page.practice[questionNo].options[1].feedback} \n 
+                ${page.practice[questionNo].options[2].text}, ${page.practice[questionNo].options[2].isCorrect}, ${page.practice[questionNo].options[2].feedback} \n
+                ${page.practice[questionNo].options[3].text}, ${page.practice[questionNo].options[3].isCorrect}, ${page.practice[questionNo].options[3].feedback}
                 `);
                 return page;
             } catch (error) {
                 console.error("Error!", error);
             }
         }
-        page = loadPage(lessonIndex);
+        page = loadPage(lessonIndex, 0);
         let questions = {};
         title = document.getElementById("title");
         question = document.getElementById("question");
@@ -83,15 +83,15 @@
         console.log(`Title element: \n ${title} \n Question: \n ${question} \n opttions \n ${questions}`);
         page.then((page) => {
             title.innerText = page.title;
-            question.innerText = page.practice.question;
-            questions.a.innerText = page.practice.options[0].text;
-            questions.b.innerText = page.practice.options[1].text;
-            questions.c.innerText = page.practice.options[2].text;
-            questions.d.innerText = page.practice.options[3].text;
+            question.innerText = page.practice[0].question;
+            questions.a.innerText = page.practice[0].options[0].text;
+            questions.b.innerText = page.practice[0].options[1].text;
+            questions.c.innerText = page.practice[0].options[2].text;
+            questions.d.innerText = page.practice[0].options[3].text;
         });
         let verify = function (number, letter) {
             page.then((page) => {
-                if (page.practice.options[number].isCorrect) {
+                if (page.practice[0].options[number].isCorrect) {
                     questions[letter].style.color = "darkgreen";
                     questions[letter].style.backgroundColor = "green";
                     isAnswered = true;
