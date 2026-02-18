@@ -61,6 +61,60 @@
     {
         "id":"1",
         "title":"What is Pre Algebra?",
-        "content":" <p>Pre-algebra is a part of mathematics which is studied typically in the United States. It is usually taught in 8th grade to prepare students for algebra, geometry, and other subjects that are taught in high school. Pre-algebra helps students understand variables and graphs. Pre-algebra often deals with basic math, while adding letters, commonly used are x and y. <br/> <br/> - Wikipedia </p>"
+        "content":" <p>Pre-algebra is a part of mathematics which is studied typically in the United States. It is usually taught in 8th grade to prepare students for algebra, geometry, and other subjects that are taught in high school. Pre-algebra helps students understand variables and graphs. Pre-algebra often deals with basic math, while adding letters, commonly used are x and y. <br/> <br/> - Wikipedia </p>",
+		"practice":[
+			{
+				"id":"0",
+				"question":"What is 1+1?",
+				"options":[
+					{
+						"text":"1",
+						"isCorrect":false,
+						"feedback":"Uh Oh!"
+					},
+					{
+						"text":"2",
+						"isCorrect":true,
+						"feedback":"Good Job!"
+					},
+					{
+						"text":"3",
+						"isCorrect":false,
+						"feedback":"Uh Oh!"
+					},
+					{
+						"text":"4",
+						"isCorrect":false,
+						"feedback":"Uh Oh!"
+					}
+				]
+			},
+			{
+				"id":"1",
+				"question":"What is 2+2?",
+				"options":[
+					{
+						"text":"1",
+						"isCorrect":false,
+						"feedback":"Uh Oh!"
+					},
+					{
+						"text":"2",
+						"isCorrect":false,
+						"feedback":"Uh Oh!"
+					},
+					{
+						"text":"3",
+						"isCorrect":false,
+						"feedback":"Uh Oh!"
+					},
+					{
+						"text":"4",
+						"isCorrect":true,
+						"feedback":"Good Job!"
+					}
+				]
+			}
+		]
     }
 ]
