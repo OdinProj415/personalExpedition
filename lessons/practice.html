@@ -120,7 +120,7 @@
                     questions[letter].style.color = "maroon";
                     questions[letter].style.backgroundColor = "red";
                 }
-                feedback = page.practice[0].options[number].feedback;
+                feedback.innerText = page.practice[0].options[number].feedback;
             });
         };
         questions.a.addEventListener("click", () => verify(0, "a"));
