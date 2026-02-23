@@ -118,6 +118,7 @@
                     questions[letter].style.color = "maroon";
                     questions[letter].style.backgroundColor = "red";
                 }
+                document.write(page.practice[0].options[number].feedback);
             });
         };
         questions.a.addEventListener("click", () => verify(0, "a"));
