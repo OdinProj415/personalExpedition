@@ -21,24 +21,7 @@
             font-style: normal;
         }
 
-
-        #content {
-            background-color: #f7f7f7;
-            border-radius: 8px;
-            border-top: 1px solid #e0e0e0;
-            border-left: 1px solid #e0e0e0;
-            border-right: 5px solid #aaa;
-            border-bottom: 5px solid #aaa;
-            font-family: "Chilanka", "Comic Sans MS", "Apple Chancery", "Bradley Hand", cursive, sans-serif;
-            font-weight: 400;
-            font-style: normal;
-            line-height: 1.6;
-            color: #333;
-            display: block;
-            padding: 8px;
-        }
-
-        button:not(#next-question) {
+        .button {
             background-color: #f7f7f7;
             border-radius: 8px;
             border-top: 1px solid #e0e0e0;
@@ -47,10 +30,9 @@
             border-bottom: 5px solid #aaa;
             font-family: "Chilanka", "Comic Sans MS", "Apple Chancery", "Bradley Hand", cursive, sans-serif;
             font-weight: 600;
-            font-style: normal;
             line-height: 1.6;
             color: #333;
-            display: inline-block;
+            display: block;
             padding: 8px;
             margin-top: 12px;
             max-width: 450px;
@@ -58,45 +40,28 @@
             text-align: left;
         }
 
-        #next-question:not(:disabled) {
-            background-color: #f7f7f7;
-            border-radius: 5px;
-            border-top: 1px solid #e0e0e0;
-            border-left: 1px solid #e0e0e0;
-            border-right: 5px solid #aaa;
-            border-bottom: 5px solid #aaa;
-            font-family: "Chilanka", "Comic Sans MS", "Apple Chancery", "Bradley Hand", cursive, sans-serif;
-            font-weight: 600;
-            font-style: normal;
-            line-height: 1.6;
-            color: #333;
-            display: block;
-            padding-top: 3px;
-            padding-left: 5px;
-            margin-top: 12px;
-            margin-left: calc(min(47%, 450px) - 106px);
-            width: 107px;
+        #next-question {
+            width: 112px;
+            margin-left: calc(min(47%, 450px) - 112px);
         }
 
         #next-question:disabled {
             background-color: #ddd;
-            border-radius: 5px;
-            border-top: 1px solid #ccc;
-            border-left: 1px solid #ccc;
-            border-right: 5px solid #aaa;
-            border-bottom: 5px solid #aaa;
-            font-family: "Chilanka", "Comic Sans MS", "Apple Chancery", "Bradley Hand", cursive, sans-serif;
-            font-weight: 500;
-            font-style: normal;
-            line-height: 1.6;
+            border-color: #ccc;
             color: #999;
-            display: block;
-            padding-top: 3px;
-            padding-left: 5px;
-            margin-top: 12px;
-            margin-left: calc(min(47%, 450px) - 106px);
-            width: 107px;
             cursor: not-allowed;
+        }
+
+        .correct {
+            background-color: #aaeaaa;
+            border-color: #13845d;
+            color: #046124;
+        }
+
+        .incorrect {
+            background-color: #eaaaaa;
+            border-color: #841313;
+            color: #610404;
         }
     </style>
 </head>
@@ -104,45 +69,66 @@
 <body>
     <h1 id="title">Loading Page Title...</h1>
     <p id="question">Loading Question</p>
-    <button id="1">Loading...</button><br>
+    <button class="button" id="1">Loading...</button><br>
     <p id="feedback-a"></p><br>
-    <button id="2">Loading...</button><br>
+    <button class="button" id="2">Loading...</button><br>
     <p id="feedback-b"></p><br>
-    <button id="3">Loading...</button><br>
+    <button class="button" id="3">Loading...</button><br>
     <p id="feedback-c"></p><br>
-    <button id="4">Loading...</button><br>
+    <button class="button" id="4">Loading...</button><br>
     <p id="feedback-d"></p>
-    <button disabled id="next-question">Next Question</button>
+    <button disabled class="button" id="next-question">Next Question</button>
     <script>
         const urlvars = new URLSearchParams(window.location.search);
         const lessonIndex = parseInt(urlvars.get("li"), 10);
-        let isAnswered = false;
-        let masteryMode = true;
-        async function loadPage(lessonIndex, questionNo) {
+        let isAnswered = false, questionIndex = 0;
+        async function loadPage(lessonIndex) {
             try {
                 const response = await fetch("prealgebra.json");
                 const course = await response.json();
                 const page = course[lessonIndex];
-                console.log(`
-                Content: \n ${page.content} \n \n \n 
-                Title: \n ${page.title} \n  \n \n 
-                Practice: \n ${page.practice[questionNo].question} \n \n \n
-                Options: \n 
-                ${page.practice[questionNo].options[0].text}, ${page.practice[questionNo].options[0].isCorrect}, ${page.practice[questionNo].options[0].feedback} \n
-                ${page.practice[questionNo].options[1].text}, ${page.practice[questionNo].options[1].isCorrect}, ${page.practice[questionNo].options[1].feedback} \n 
-                ${page.practice[questionNo].options[2].text}, ${page.practice[questionNo].options[2].isCorrect}, ${page.practice[questionNo].options[2].feedback} \n
-                ${page.practice[questionNo].options[3].text}, ${page.practice[questionNo].options[3].isCorrect}, ${page.practice[questionNo].options[3].feedback}
-                `);
                 return page;
             } catch (error) {
                 console.error("Error!", error);
             }
         }
-        page = loadPage(lessonIndex, 0);
-        let questions = {};
-        let feedback = {};
-        title = document.getElementById("title");
-        question = document.getElementById("question");
+        function displayPage(questionIndex) {
+            page = loadPage(lessonIndex);
+            page.then((page) => {
+                clearAll();
+                title.innerText = page.title;
+                question.innerText = page.practice[questionIndex].question;
+                questions.a.innerText = `a)\u00A0\u00A0${page.practice[questionIndex].options[0].text}`;
+                questions.b.innerText = `b)\u00A0\u00A0${page.practice[questionIndex].options[1].text}`;
+                questions.c.innerText = `c)\u00A0\u00A0${page.practice[questionIndex].options[2].text}`;
+                questions.d.innerText = `d)\u00A0\u00A0${page.practice[questionIndex].options[3].text}`;
+            });
+        }
+        function clearAll(){
+                questions.a.classList.remove("correct", "incorrect");
+                questions.b.classList.remove("correct", "incorrect");
+                questions.c.classList.remove("correct", "incorrect");
+                questions.d.classList.remove("correct", "incorrect");
+                feedback.a.innerText = "";
+                feedback.b.innerText = "";
+                feedback.c.innerText = "";
+                feedback.d.innerText = "";
+        }
+        let verify = function (number, letter, questionIndex) {
+            clearAll();
+            page.then((page) => {
+                if (page.practice[questionIndex].options[number].isCorrect) {
+                    questions[letter].classList.add("correct");
+                    isAnswered = true;
+                    nextQuestion.disabled = false;
+                } else {
+                    questions[letter].classList.add("incorrect");
+                }
+                feedback[letter].innerText = page.practice[questionIndex].options[number].feedback;
+            });
+        };
+        let questions = {}, feedback = {};
+        const title = document.getElementById("title"), question = document.getElementById("question"), nextQuestion = document.getElementById("next-question");
         questions.a = document.getElementById("1");
         questions.b = document.getElementById("2");
         questions.c = document.getElementById("3");
@@ -151,49 +137,17 @@
         feedback.b = document.getElementById("feedback-b");
         feedback.c = document.getElementById("feedback-c");
         feedback.d = document.getElementById("feedback-d");
-        nextQuestion = document.getElementById("next-question");
-        console.log(`Title element: \n ${title} \n Question: \n ${question} \n opttions \n ${questions}`);
-        page.then((page) => {
-            title.innerText = page.title;
-            question.innerText = page.practice[0].question;
-            questions.a.innerText = `a)\u00A0\u00A0${page.practice[0].options[0].text}`;
-            questions.b.innerText = `b)\u00A0\u00A0${page.practice[0].options[1].text}`;
-            questions.c.innerText = `c)\u00A0\u00A0${page.practice[0].options[2].text}`;
-            questions.d.innerText = `d)\u00A0\u00A0${page.practice[0].options[3].text}`;
+        displayPage(questionIndex);
+        questions.a.addEventListener("click", () => verify(0, "a", questionIndex));
+        questions.b.addEventListener("click", () => verify(1, "b", questionIndex));
+        questions.c.addEventListener("click", () => verify(2, "c", questionIndex));
+        questions.d.addEventListener("click", () => verify(3, "d", questionIndex));
+        nextQuestion.addEventListener("click", () => {
+            questionIndex++;
+            displayPage(questionIndex);
+            isAnswered = false;
+            nextQuestion.disabled = true;
         });
-        let verify = function (number, letter) {
-            page.then((page) => {
-                questions.a.style.color = "#333";
-                questions.a.style.backgroundColor = "#f7f7f7";
-                feedback.a.innerText = "";
-                questions.b.style.color = "#333";
-                questions.b.style.backgroundColor = "#f7f7f7";
-                feedback.b.innerText = "";
-                questions.c.style.color = "#333";
-                questions.c.style.backgroundColor = "#f7f7f7";
-                feedback.c.innerText = "";
-                questions.d.style.color = "#333";
-                questions.d.style.backgroundColor = "#f7f7f7";
-                feedback.d.innerText = "";
-                if (page.practice[0].options[number].isCorrect) {
-                    questions[letter].style.color = "#046124";
-                    questions[letter].style.backgroundColor = "#00a170";
-                    isAnswered = true;
-                    nextQuestion.disabled = false;
-                } else {
-                    if (masteryMode === false) {
-                        isAnswered = true;
-                    }
-                    questions[letter].style.color = "maroon";
-                    questions[letter].style.backgroundColor = "red";
-                }
-                feedback[letter].innerText = page.practice[0].options[number].feedback;
-            });
-        };
-        questions.a.addEventListener("click", () => verify(0, "a"));
-        questions.b.addEventListener("click", () => verify(1, "b"));
-        questions.c.addEventListener("click", () => verify(2, "c"));
-        questions.d.addEventListener("click", () => verify(3, "d"));
     </script>
 
 </body>
