@@ -1,33 +1,35 @@
-{
-	"id": "intro_1",
-	"title": "Welcome to Algebrators! 👋",
-	"content": "<h2>Navigating Your Lessons 🧭</h2><p>Welcome to your first step in mastering Pre-Algebra! At the bottom of each lesson, you will see buttons to help you move through the course:</p><ul><li><b>Back:</b> Takes you to the previous lesson if you need a quick review.</li><li><b>Skip Practice:</b> Use this if you are already confident with a particular skill and want to move forward without taking the quiz.</li><li><b>Practice Concept:</b> This turns the page into a quiz! It is a great way to identify whether you understand the lesson and figure out how to expand upon it.</li></ul>",
-	"practice": [
-		{
-			"id": "0",
-			"question": "Which button should you click to test your understanding of a lesson?",
-			"options": [
-				{
-					"text": "Back",
-					"isCorrect": false,
-					"feedback": "Not quite! That just takes you to the previous page."
-				},
-				{
-					"text": "Skip Practice",
-					"isCorrect": false,
-					"feedback": "Careful! You only click this if you are already confident and want to skip the quiz."
-				},
-				{
-					"text": "Practice Concept",
-					"isCorrect": true,
-					"feedback": "Spot on! That's how you check your knowledge."
-				},
-				{
-					"text": "Refresh",
-					"isCorrect": false,
-					"feedback": "Nope, that will just reload the lesson you are currently reading."
-				}
-			]
-		}
-	]
-}
+[
+	{
+		"id": "intro_1",
+		"title": "Welcome to Algebrators! 👋",
+		"content": "<h2>Navigating Your Lessons 🧭</h2><p>Welcome to your first step in mastering Pre-Algebra! At the bottom of each lesson, you will see buttons to help you move through the course:</p><ul><li><b>Back:</b> Takes you to the previous lesson if you need a quick review.</li><li><b>Skip Practice:</b> Use this if you are already confident with a particular skill and want to move forward without taking the quiz.</li><li><b>Practice Concept:</b> This turns the page into a quiz! It is a great way to identify whether you understand the lesson and figure out how to expand upon it.</li></ul>",
+		"practice": [
+			{
+				"id": "0",
+				"question": "Which button should you click to test your understanding of a lesson?",
+				"options": [
+					{
+						"text": "Back",
+						"isCorrect": false,
+						"feedback": "Not quite! That just takes you to the previous page."
+					},
+					{
+						"text": "Skip Practice",
+						"isCorrect": false,
+						"feedback": "Careful! You only click this if you are already confident and want to skip the quiz."
+					},
+					{
+						"text": "Practice Concept",
+						"isCorrect": true,
+						"feedback": "Spot on! That's how you check your knowledge."
+					},
+					{
+						"text": "Refresh",
+						"isCorrect": false,
+						"feedback": "Nope, that will just reload the lesson you are currently reading."
+					}
+				]
+			}
+		]
+	}
+]
