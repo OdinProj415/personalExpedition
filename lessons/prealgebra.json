@@ -4,32 +4,84 @@
 		"title": "Welcome to Algebrators! 👋",
 		"content": "<h2>Navigating Your Lessons 🧭</h2><p>Welcome to your first step in mastering Pre-Algebra! At the bottom of each lesson, you will see buttons to help you move through the course:</p><ul><li><b>Back:</b> Takes you to the previous lesson if you need a quick review.</li><li><b>Skip Practice:</b> Use this if you are already confident with a particular skill and want to move forward without taking the quiz.</li><li><b>Practice Concept:</b> This turns the page into a quiz! It is a great way to identify whether you understand the lesson and figure out how to expand upon it.</li></ul>",
 		"practice": [
-			{
-				"id": "0",
-				"question": "Which button should you click to test your understanding of a lesson?",
-				"options": [
-					{
-						"text": "Back",
-						"isCorrect": false,
-						"feedback": "Not quite! That just takes you to the previous page."
-					},
-					{
-						"text": "Skip Practice",
-						"isCorrect": false,
-						"feedback": "Careful! You only click this if you are already confident and want to skip the quiz."
-					},
-					{
-						"text": "Practice Concept",
-						"isCorrect": true,
-						"feedback": "Spot on! That's how you check your knowledge."
-					},
-					{
-						"text": "Refresh",
-						"isCorrect": false,
-						"feedback": "Nope, that will just reload the lesson you are currently reading."
-					}
-				]
-			}
-		]
+						{
+							"id": "0",
+							"question": "Which button should you click if you want to test your understanding of the lesson?",
+							"options": [
+								{
+									"text": "Back",
+									"isCorrect": false,
+									"feedback": "Not quite! That just takes you to the previous page."
+								},
+								{
+									"text": "Skip Practice",
+									"isCorrect": false,
+									"feedback": "Careful! You only click this if you are already confident and want to skip the quiz."
+								},
+								{
+									"text": "Practice Concept",
+									"isCorrect": true,
+									"feedback": "Spot on! That turns the page into a quiz to check your knowledge."
+								},
+								{
+									"text": "Refresh",
+									"isCorrect": false,
+									"feedback": "Nope, that will just reload the lesson you are currently reading."
+								}
+							]
+						},
+						{
+							"id": "1",
+							"question": "What is the best reason to use the 'Skip Practice' button?",
+							"options": [
+								{
+									"text": "You are tired of reading.",
+									"isCorrect": false,
+									"feedback": "Even if you're tired, the practice is where the real learning happens!"
+								},
+								{
+									"text": "You already know the concept perfectly and want to move forward.",
+									"isCorrect": true,
+									"feedback": "Exactly! It lets you bypass the quiz if you've already mastered the topic."
+								},
+								{
+									"text": "You got a question wrong and want to escape.",
+									"isCorrect": false,
+									"feedback": "Don't run away from mistakes! They are the best way to learn."
+								},
+								{
+									"text": "It gives you extra credit.",
+									"isCorrect": false,
+									"feedback": "Nice try, but there is no extra credit for skipping!"
+								}
+							]
+						},
+						{
+							"id": "2",
+							"question": "What should you do if you click an answer and the button turns red?",
+							"options": [
+								{
+									"text": "Read the feedback message to understand why it was wrong.",
+									"isCorrect": true,
+									"feedback": "Yes! The feedback is designed to coach you through your mistakes."
+								},
+								{
+									"text": "Click 'Back' and pretend it didn't happen.",
+									"isCorrect": false,
+									"feedback": "Pretending doesn't build that math muscle!"
+								},
+								{
+									"text": "Rapidly click all the other buttons until one turns green.",
+									"isCorrect": false,
+									"feedback": "Guessing won't help you understand the core concept."
+								},
+								{
+									"text": "Close the website.",
+									"isCorrect": false,
+									"feedback": "Don't give up! Productive struggle is part of the process."
+								}
+							]
+						}
+					]
 	}
 ]

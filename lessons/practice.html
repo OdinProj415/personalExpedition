@@ -38,7 +38,7 @@
             padding: 8px;
         }
 
-        button {
+        button:not(#next-question) {
             background-color: #f7f7f7;
             border-radius: 8px;
             border-top: 1px solid #e0e0e0;
@@ -57,6 +57,47 @@
             width: 47%; 
             text-align: left;
         }
+
+        #next-question:not(:disabled) {
+            background-color: #f7f7f7;
+            border-radius: 5px;
+            border-top: 1px solid #e0e0e0;
+            border-left: 1px solid #e0e0e0;
+            border-right: 5px solid #aaa;
+            border-bottom: 5px solid #aaa;
+            font-family: "Chilanka", "Comic Sans MS", "Apple Chancery", "Bradley Hand", cursive, sans-serif;
+            font-weight: 600;
+            font-style: normal;
+            line-height: 1.6;
+            color: #333;
+            display: block;
+            padding-top: 3px;
+            padding-left: 5px;
+            margin-top: 12px;
+            margin-left: calc(min(47%, 450px) - 106px);
+            width: 107px;
+        }
+
+        #next-question:disabled {
+            background-color: #ddd;
+            border-radius: 5px;
+            border-top: 1px solid #ccc;
+            border-left: 1px solid #ccc;
+            border-right: 5px solid #aaa;
+            border-bottom: 5px solid #aaa;
+            font-family: "Chilanka", "Comic Sans MS", "Apple Chancery", "Bradley Hand", cursive, sans-serif;
+            font-weight: 500;
+            font-style: normal;
+            line-height: 1.6;
+            color: #999;
+            display: block;
+            padding-top: 3px;
+            padding-left: 5px;
+            margin-top: 12px;
+            margin-left: calc(min(47%, 450px) - 106px);
+            width: 107px;
+            cursor: not-allowed;
+        }
     </style>
 </head>
 
@@ -71,6 +112,7 @@
     <p id="feedback-c"></p><br>
     <button id="4">Loading...</button><br>
     <p id="feedback-d"></p>
+    <button disabled id="next-question">Next Question</button>
     <script>
         const urlvars = new URLSearchParams(window.location.search);
         const lessonIndex = parseInt(urlvars.get("li"), 10);
@@ -109,6 +151,7 @@
         feedback.b = document.getElementById("feedback-b");
         feedback.c = document.getElementById("feedback-c");
         feedback.d = document.getElementById("feedback-d");
+        nextQuestion = document.getElementById("next-question");
         console.log(`Title element: \n ${title} \n Question: \n ${question} \n opttions \n ${questions}`);
         page.then((page) => {
             title.innerText = page.title;
@@ -136,6 +179,7 @@
                     questions[letter].style.color = "#046124";
                     questions[letter].style.backgroundColor = "#00a170";
                     isAnswered = true;
+                    nextQuestion.disabled = false;
                 } else {
                     if (masteryMode === false) {
                         isAnswered = true;
