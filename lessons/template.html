@@ -69,9 +69,21 @@
             }
         };
         function redirect(lessonIndex) {
+            console.log(lessonIndex);
+            if (!(lessonIndex >= 0 && lessonIndex <= 10)) {
+                alert("No more lessons in this direction!");
+                lessonIndex = 0;
+                alert("Redirecting to first lesson...");
+            }
             window.location.href = `./template.html?li=${lessonIndex}`;
         }
         function doPractice(lessonIndex) {
+            console.log(lessonIndex);
+            if (!(lessonIndex >= 0 && lessonIndex <= 10)) {
+                alert("No more lessons in this direction!");
+                lessonIndex = 0;
+                alert("Redirecting to first lesson...");
+            }
             window.location.href = `./practice.html?li=${lessonIndex}`;
         };
         loadPage(lessonIndex);
