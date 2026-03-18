@@ -109,9 +109,17 @@
         });
         let verify = function (number, letter) {
             page.then((page) => {
+                questions.a.style.color = "#333";
+                questions.a.style.backgroundColor = "#f7f7f7";
+                questions.b.style.color = "#333";
+                questions.b.style.backgroundColor = "#f7f7f7";
+                questions.c.style.color = "#333";
+                questions.c.style.backgroundColor = "#f7f7f7";
+                questions.d.style.color = "#333";
+                questions.d.style.backgroundColor = "#f7f7f7";
                 if (page.practice[0].options[number].isCorrect) {
-                    questions[letter].style.color = "darkgreen";
-                    questions[letter].style.backgroundColor = "green";
+                    questions[letter].style.color = "#046124";
+                    questions[letter].style.backgroundColor = "#00a170";
                     isAnswered = true;
                 } else {
                     if (masteryMode === false) {
