@@ -52,6 +52,11 @@
             cursor: not-allowed;
         }
 
+        #next-question.short {
+           width:100px;
+           margin-left: calc(min(47%, 450px) - 110px);
+        }
+
         .correct {
             background-color: #aaeaaa;
             border-color: #13845d;
@@ -65,7 +70,6 @@
         }
     </style>
 </head>
-
 <body>
     <h1 id="title">Loading Page Title...</h1>
     <p id="question">Loading Question</p>
@@ -81,6 +85,10 @@
     <script>
         const urlvars = new URLSearchParams(window.location.search);
         const lessonIndex = parseInt(urlvars.get("li"), 10);
+        if (isNaN(lessonIndex)) {
+            alert("Lesson number is not valid. Going back to lesson 1.");
+            window.location.href = "./practice.html?li=0";
+        }
         let isAnswered = false, questionIndex = 0;
         async function loadPage(lessonIndex) {
             try {
@@ -102,6 +110,13 @@
                 questions.b.innerText = `b)\u00A0\u00A0${page.practice[questionIndex].options[1].text}`;
                 questions.c.innerText = `c)\u00A0\u00A0${page.practice[questionIndex].options[2].text}`;
                 questions.d.innerText = `d)\u00A0\u00A0${page.practice[questionIndex].options[3].text}`;
+                if (page.practice.length <= questionIndex + 1) {
+                    nextQuestion.innerText = "Next Lesson";
+                    nextQuestion.classList.add("short");
+                } else {
+                    nextQuestion.innerText = "Next Question";
+                    nextQuestion.classList.remove("short")
+                };
             });
         }
         function clearAll(){
@@ -143,10 +158,16 @@
         questions.c.addEventListener("click", () => verify(2, "c", questionIndex));
         questions.d.addEventListener("click", () => verify(3, "d", questionIndex));
         nextQuestion.addEventListener("click", () => {
-            questionIndex++;
-            displayPage(questionIndex);
-            isAnswered = false;
-            nextQuestion.disabled = true;
+            loadPage(lessonIndex).then((page) => {
+                if (questionIndex < page.practice.length - 1) {
+                    questionIndex++;
+                    displayPage(questionIndex);
+                    isAnswered = false;
+                    nextQuestion.disabled = true;
+                } else {
+                    window.location.href = `./template.html?li=${lessonIndex+1}`;
+                }
+            });
         });
     </script>
 
