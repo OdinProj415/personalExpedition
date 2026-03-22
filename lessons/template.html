@@ -22,7 +22,7 @@
         }
 
 
-        #content-block {
+        .content-block {
             background-color: #f7f7f7;
             border-radius: 8px;
             border-top: 1px solid #e0e0e0;
@@ -36,18 +36,35 @@
             color: #333;
             display: block;
             padding: 8px;
+            width: min(800px, 65%);
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 3px;
+            margin-left: 7px;
+            padding-top: 4px;
+            padding-bottom: 4px;
+            width:fit-content;
+            font-family: "Chilanka", "Comic Sans MS", "Apple Chancery", "Bradley Hand", cursive, sans-serif;
+            font-weight: 600;
+            transform: scaleX(1.03);
+        }
+
+        #back {
+            margin-left: 0px;
         }
     </style>
 </head>
 
 <body>
     <h1 id="title">Loading Page Title...</h1>
-    <div id="content-block">
+    <div class="content-block" id="content-block">
         Loading Page Content...
     </div>
-    <button id="back">Back</button>
-    <button id="skip">Skip Practice</button>
-    <button id="practice"> &starf; Practice Concept &starf;</button>
+    <button class="button content-block" id="back">Back</button>
+    <button class="button content-block" id="skip">Skip Practice</button>
+    <button class="button content-block" id="practice"> &starf; Practice Concept &starf;</button>
     <script>
         let pageHTML;
         let titledoc = document.getElementById("title");

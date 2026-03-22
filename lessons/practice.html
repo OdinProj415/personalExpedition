@@ -40,9 +40,15 @@
             text-align: left;
         }
 
+        #back {
+            display: inline-block;
+            width: 114.7px;
+        }
+
         #next-question {
-            width: 112px;
-            margin-left: calc(min(47%, 450px) - 112px);
+            display: inline-block;
+            width: 111.4px;
+            margin-left: calc(min(47%, 450px) - calc(226.1px + 5.334px));
         }
 
         #next-question:disabled {
@@ -54,7 +60,7 @@
 
         #next-question.short {
            width:100px;
-           margin-left: calc(min(47%, 450px) - 110px);
+           margin-left: calc(min(47%, 450px) - 100px);
         }
 
         .correct {
@@ -81,6 +87,7 @@
     <p id="feedback-c"></p><br>
     <button class="button" id="4">Loading...</button><br>
     <p id="feedback-d"></p>
+    <button onclick="window.location.href = './template.html?li=' + new URLSearchParams(window.location.search).get('li')" class="button" id="back">Back to Lesson</button>
     <button disabled class="button" id="next-question">Next Question</button>
     <script>
         const urlvars = new URLSearchParams(window.location.search);
@@ -89,6 +96,17 @@
             alert("Lesson number is not valid. Going back to lesson 1.");
             window.location.href = "./practice.html?li=0";
         }
+        function shuffle() {
+            const shuffled = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]; 
+            let currentIndex = 10, randomIndex;
+            while (currentIndex !== 0) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+                [shuffled[currentIndex], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[currentIndex]];
+            }
+            return shuffled;
+        }
+        let qorder = shuffle();
         let isAnswered = false, questionIndex = 0;
         async function loadPage(lessonIndex) {
             try {
@@ -100,7 +118,9 @@
                 console.error("Error!", error);
             }
         }
-        function displayPage(questionIndex) {
+        function displayPage() {
+            qorder.shift();
+            const questionIndex = qorder[0];
             page = loadPage(lessonIndex);
             page.then((page) => {
                 clearAll();
@@ -129,7 +149,8 @@
                 feedback.c.innerText = "";
                 feedback.d.innerText = "";
         }
-        let verify = function (number, letter, questionIndex) {
+        let verify = function (number, letter) {
+            questionIndex = qorder[0];
             clearAll();
             page.then((page) => {
                 if (page.practice[questionIndex].options[number].isCorrect) {
@@ -152,16 +173,15 @@
         feedback.b = document.getElementById("feedback-b");
         feedback.c = document.getElementById("feedback-c");
         feedback.d = document.getElementById("feedback-d");
-        displayPage(questionIndex);
-        questions.a.addEventListener("click", () => verify(0, "a", questionIndex));
-        questions.b.addEventListener("click", () => verify(1, "b", questionIndex));
-        questions.c.addEventListener("click", () => verify(2, "c", questionIndex));
-        questions.d.addEventListener("click", () => verify(3, "d", questionIndex));
+        displayPage();
+        questions.a.addEventListener("click", () => verify(0, "a"));
+        questions.b.addEventListener("click", () => verify(1, "b"));
+        questions.c.addEventListener("click", () => verify(2, "c"));
+        questions.d.addEventListener("click", () => verify(3, "d"));
         nextQuestion.addEventListener("click", () => {
             loadPage(lessonIndex).then((page) => {
-                if (questionIndex < page.practice.length - 1) {
-                    questionIndex++;
-                    displayPage(questionIndex);
+                if (qorder.length > 1) {
+                    displayPage();
                     isAnswered = false;
                     nextQuestion.disabled = true;
                 } else {
