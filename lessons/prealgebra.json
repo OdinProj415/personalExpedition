@@ -190,5 +190,101 @@
 				]
 			}
 		]
+	},
+	{
+		"title": "What We're Going to Learn 🗺️",
+		"content": "<h2>Your Roadmap to Success</h2><p>Pre-Algebra is a journey through four main 'territories':</p><ul><li><b>Prerequisites:</b> Reviewing the basics like order of operations so you have a strong foundation.</li><li><b>Number Sense:</b> Learning about negative numbers (integers) and where they live on the number line.</li><li><b>Proportions:</b> Understanding how numbers relate through ratios and percentages.</li><li><b>Equations:</b> The core of Algebra—learning the rules to move numbers around and solve for 'x'.</li></ul><p>Mastering these will make you unstoppable in Algebra 1 and beyond!</p>",
+		"practice": [
+			{
+				"question": "What is the very first focus of this course roadmap?",
+				"options": [
+					{ "text": "Building advanced rockets.", "isCorrect": false, "feedback": "Maybe later! First, we need the basics." },
+					{ "text": "Prerequisites and foundational skills.", "isCorrect": true, "feedback": "Correct. You can't build a house without a strong foundation." },
+					{ "text": "Learning to use a 3D printer.", "isCorrect": false, "feedback": "Cool, but not part of our math map." },
+					{ "text": "Memorizing the dictionary.", "isCorrect": false, "feedback": "Wrong subject! We focus on numbers and logic here." }
+				]
+			},
+			{
+				"question": "In which territory will we learn about negative numbers?",
+				"options": [
+					{ "text": "Number Sense & Integers", "isCorrect": true, "feedback": "Exactly! Negative numbers are a huge part of number sense." },
+					{ "text": "Geography", "isCorrect": false, "feedback": "Geography is about maps of the world, not the number line!" },
+					{ "text": "Addition only", "isCorrect": false, "feedback": "Negative numbers affect all operations." },
+					{ "text": "Spelling", "isCorrect": false, "feedback": "No spelling tests in Pre-Algebra!" }
+				]
+			},
+			{
+				"question": "Why is 'Prerequisites' a part of the learning plan?",
+				"options": [
+					{ "text": "To make the course take longer.", "isCorrect": false, "feedback": "We want you to learn efficiently, not slowly!" },
+					{ "text": "Because Algebra is built directly on basic arithmetic skills.", "isCorrect": true, "feedback": "Yes! If your basics are shaky, Algebra will feel much harder." },
+					{ "text": "Because it's easier than the other chapters.", "isCorrect": false, "feedback": "It's about being prepared, not just taking the easy way out." },
+					{ "text": "Because the computer requires it.", "isCorrect": false, "feedback": "The human brain requires it to build solid logic!" }
+				]
+			},
+			{
+				"question": "What is considered the 'core' or heart of Algebra?",
+				"options": [
+					{ "text": "Counting to one million.", "isCorrect": false, "feedback": "That's just a lot of counting!" },
+					{ "text": "Solving equations for unknown variables.", "isCorrect": true, "feedback": "You nailed it. Solving for 'x' is the ultimate goal." },
+					{ "text": "Writing long essays about math history.", "isCorrect": false, "feedback": "We focus more on solving than essay writing." },
+					{ "text": "Learning to draw perfect squares.", "isCorrect": false, "feedback": "Geometry is helpful, but equations are the heart of Algebra." }
+				]
+			},
+			{
+				"question": "Which of these is NOT one of the territories on our roadmap?",
+				"options": [
+					{ "text": "Proportions", "isCorrect": false, "feedback": "We definitely cover that!" },
+					{ "text": "Ancient Literature", "isCorrect": true, "feedback": "That's a different class entirely! We stick to math." },
+					{ "text": "The Number System", "isCorrect": false, "feedback": "This is a major stop on our journey." },
+					{ "text": "Equations", "isCorrect": false, "feedback": "This is the most important part of the map!" }
+				]
+			},
+			{
+				"question": "What does 'Number Sense' help you understand?",
+				"options": [
+					{ "text": "How numbers smell.", "isCorrect": false, "feedback": "Numbers don't have a scent!" },
+					{ "text": "The value and location of numbers on a number line.", "isCorrect": true, "feedback": "Correct. It helps you 'see' how numbers relate to each other." },
+					{ "text": "How to say numbers in different languages.", "isCorrect": false, "feedback": "That's linguistics, not number sense." },
+					{ "text": "The history of the number zero.", "isCorrect": false, "feedback": "Interesting, but not the focus of number sense." }
+				]
+			},
+			{
+				"question": "True or False: We will touch on basic Geometry in this course.",
+				"options": [
+					{ "text": "True", "isCorrect": true, "feedback": "Yes! We will look at things like perimeter and area using variables." },
+					{ "text": "False", "isCorrect": false, "feedback": "Actually, basic Geometry is an important application of Pre-Algebra." },
+					{ "text": "Only if you want extra credit.", "isCorrect": false, "feedback": "It's a standard part of the roadmap!" },
+					{ "text": "Only on Fridays.", "isCorrect": false, "feedback": "Math happens every day!" }
+				]
+			},
+			{
+				"question": "Which topic covers comparing values like ratios and percentages?",
+				"options": [
+					{ "text": "Prerequisites", "isCorrect": false, "feedback": "That's for the basics like PEMDAS." },
+					{ "text": "Proportions", "isCorrect": true, "feedback": "Exactly! Proportions are all about comparing relative sizes." },
+					{ "text": "Subtraction", "isCorrect": false, "feedback": "Subtraction finds differences, not ratios." },
+					{ "text": "Biology", "isCorrect": false, "feedback": "Wrong subject!" }
+				]
+			},
+			{
+				"question": "Solving for 'x' using addition and multiplication belongs to which category?",
+				"options": [
+					{ "text": "Equations", "isCorrect": true, "feedback": "Perfect. Equations are where we use rules to isolate the variable." },
+					{ "text": "Number Sense", "isCorrect": false, "feedback": "That's more about knowing number values." },
+					{ "text": "History", "isCorrect": false, "feedback": "History tells us who did it, but Equations teach us how to do it." },
+					{ "text": "Reading", "isCorrect": false, "feedback": "You have to read the problem, but it's an Equation logic!" }
+				]
+			},
+			{
+				"question": "By the end of this journey, you will be prepared for which course?",
+				"options": [
+					{ "text": "Algebra 1", "isCorrect": true, "feedback": "That's the prize! You'll be ready for high school level math." },
+					{ "text": "Kindergarten", "isCorrect": false, "feedback": "You're moving up, not backward!" },
+					{ "text": "Retiring from math forever.", "isCorrect": false, "feedback": "Nice try! Math is a skill for life." },
+					{ "text": "Chef School", "isCorrect": false, "feedback": "Unless you're using Algebra to scale recipes!" }
+				]
+			}
+		]
 	}
 ]
