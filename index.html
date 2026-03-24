@@ -17,68 +17,25 @@
     </style>
 </head>
 <body>
-    <!-- Use document.getelementbyid("welcome") to replace with google account username-->
     <h1 id="welcome" class="vend-sans-font">Welcome!</h1>
+    <button onclick="restore()">Resume Progress</button>
     <script>
-        const pracorless = localStorage.getItem("pracorless");
-        const li = localStorage.getItem("li");
-        if (pracorless == "practice") {
-            window.location.href = `./lessons/practice.html?li=${parseInt(li, 10)}`;
-        } else if (pracorless == "lesson") {
-            window.location.href = `./lessons/template.html?li=${parseInt(li, 10)}`;
-        };
-        console.log("I got here");
-        let welcome = document.getElementById("welcome");
-        console.log("I got here");
-        const requestedUserInfo = [ 
-            {id:"name", label:"Name:", type:"text", default:"JohnDoe"}
-        ];
-        /* Make the div surrounding the form */
-        const formdiv = document.createElement("div");
-        formdiv.id = "form-div";
-        /* Make the form that asks for userinfo */
-        const formtag = document.createElement("form");
-        formtag.id = "form-form";
-        /* Add the form that asks for userinfo inside of the div */
-        formdiv.appendChild(formtag);
-        /* Add the div and the form inside it */
-
-        requestedUserInfo.forEach(inputInfo => {
-            const inputcontainer = document.createElement("div");
-            
-            const label = document.createElement("label");
-            label.htmlFor = inputInfo.id;
-            label.textContent = inputInfo.label;
-
-            const input = document.createElement("input");
-            input.type = inputInfo.type;
-            input.id = inputInfo.id;
-            input.placeholder = inputInfo.default;
-            input.required = true;
-
-            inputcontainer.appendChild(label);
-            inputcontainer.appendChild(input);
-
-            formtag.appendChild(inputcontainer);
-        });
-        const submit = document.createElement("button");
-        submit.type = "submit";
-        submit.textContent = "Personalize!";
-        formtag.appendChild(submit);
-        document.body.appendChild(formdiv);
-        console.log("I got here 4");
-
-        formtag.addEventListener("submit", (event) => {
-            event.preventDefault();
-            const User = {};
-            requestedUserInfo.forEach(inputInfo => {
-                const inputElement = document.getElementById(inputInfo.id);
-                User[inputInfo.id] = inputElement.value;
-            });
-            console.log("I got here 5");
-            formdiv.style.display = "none";
-            welcome.textContent = `Welcome, ${User.name}`;
-        })
+        function restore() {
+            const pracorless = localStorage.getItem("pracorless");
+            const li = localStorage.getItem("li");
+            if (pracorless == "practice") {
+                window.location.href = `./lessons/practice.html?li=${parseInt(li, 10)}`;
+            } else if (pracorless == "lesson") {
+                window.location.href = `./lessons/template.html?li=${parseInt(li, 10)}`;
+            };
+        }
+        const name = localStorage.getItem("name");
+        if (name != null) {
+            const welcome = document.getElementById("welcome");
+            welcome.innerText = "Welcome, " + name 
+        } else {
+            localStorage.setItem("name", JSON.stringify(prompt("What's your name?", "John")));
+        }
     </script>
     <a href="./lessons/template.html?li=0"><button>Start from the beginning</button></a>
     
