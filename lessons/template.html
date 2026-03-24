@@ -21,6 +21,10 @@
             font-style: normal;
         }
 
+        #content-block {
+            height: calc(100% - 13px);
+            overflow-y: scroll;
+        }
 
         .content-block {
             background-color: #f7f7f7;
@@ -59,8 +63,10 @@
 
 <body>
     <h1 id="title">Loading Page Title...</h1>
-    <div class="content-block" id="content-block">
-        Loading Page Content...
+    <div>
+        <div class="content-block" id="content-block">
+            Loading Page Content...
+        </div>
     </div>
     <button class="button content-block" id="back">Back</button>
     <button class="button content-block" id="skip">Skip Practice</button>
