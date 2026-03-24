@@ -1,290 +1,98 @@
 [
 	{
-		"title": "Welcome to Algebrators! 👋",
-		"content": "<h2>Navigating Your Lessons 🧭</h2><p>Welcome to your first step in mastering Pre-Algebra! At the bottom of each lesson, you will see buttons to help you move through the course:</p><ul><li><b>Back:</b> Takes you to the previous lesson if you need a quick review.</li><li><b>Skip Practice:</b> Use this if you are already confident with a particular skill and want to move forward without taking the quiz.</li><li><b>Practice Concept:</b> This turns the page into a quiz! It is a great way to identify whether you understand the lesson and figure out how to expand upon it.</li></ul>",
-		"practice": [
-			{
-				"question": "Which button should you click if you want to test your understanding of the lesson?",
-				"options": [
-					{ "text": "Back", "isCorrect": false, "feedback": "Not quite! That just takes you to the previous page." },
-					{ "text": "Skip Practice", "isCorrect": false, "feedback": "Careful! You only click this if you are already confident and want to skip the quiz." },
-					{ "text": "Practice Concept", "isCorrect": true, "feedback": "Spot on! That turns the page into a quiz to check your knowledge." },
-					{ "text": "Refresh", "isCorrect": false, "feedback": "Nope, that will just reload the lesson you are currently reading." }
-				]
-			},
-			{
-				"question": "What is the best reason to use the 'Skip Practice' button?",
-				"options": [
-					{ "text": "You are tired of reading.", "isCorrect": false, "feedback": "Even if you're tired, the practice is where the real learning happens!" },
-					{ "text": "You already know the concept perfectly and want to move forward.", "isCorrect": true, "feedback": "Exactly! It lets you bypass the quiz if you've already mastered the topic." },
-					{ "text": "You got a question wrong and want to escape.", "isCorrect": false, "feedback": "Don't run away from mistakes! They are the best way to learn." },
-					{ "text": "It gives you extra credit.", "isCorrect": false, "feedback": "Nice try, but there is no extra credit for skipping!" }
-				]
-			},
-			{
-				"question": "What should you do if you click an answer and the button turns red?",
-				"options": [
-					{ "text": "Read the feedback message to understand why it was wrong.", "isCorrect": true, "feedback": "Yes! The feedback is designed to coach you through your mistakes." },
-					{ "text": "Click 'Back' and pretend it didn't happen.", "isCorrect": false, "feedback": "Pretending doesn't build that math muscle!" },
-					{ "text": "Rapidly click all the other buttons until one turns green.", "isCorrect": false, "feedback": "Guessing won't help you understand the core concept." },
-					{ "text": "Close the website.", "isCorrect": false, "feedback": "Don't give up! Productive struggle is part of the process." }
-				]
-			},
-			{
-				"question": "What does it mean when an answer choice turns green?",
-				"options": [
-					{ "text": "The website is broken.", "isCorrect": false, "feedback": "Nope! Green is the universal sign for 'Go' and 'Correct!'" },
-					{ "text": "You found the correct answer.", "isCorrect": true, "feedback": "Exactly! That means you've mastered that specific question." },
-					{ "text": "You need to try again.", "isCorrect": false, "feedback": "Actually, green means you got it right. Red is for trying again." },
-					{ "text": "It's a trick question.", "isCorrect": false, "feedback": "No tricks here, just math!" }
-				]
-			},
-			{
-				"question": "If you missed a detail in the lesson while taking a quiz, which button helps you go back and check?",
-				"options": [
-					{ "text": "Skip Practice", "isCorrect": false, "feedback": "That moves you forward, not backward!" },
-					{ "text": "The Home button", "isCorrect": false, "feedback": "That would take you out of the lesson entirely." },
-					{ "text": "Back", "isCorrect": true, "feedback": "Correct! Use the Back button to review the lesson content if you get stuck." },
-					{ "text": "The Answer button", "isCorrect": false, "feedback": "There is no 'Answer' button—you have to find the answer yourself!" }
-				]
-			},
-			{
-				"question": "What is the best way to handle complex math problems on this site?",
-				"options": [
-					{ "text": "Do everything in your head.", "isCorrect": false, "feedback": "Mental math is risky for complex problems!" },
-					{ "text": "Use scratch paper to organize your steps.", "isCorrect": true, "feedback": "Yes! Writing things down helps prevent simple, silly mistakes." },
-					{ "text": "Ask a friend for the answer.", "isCorrect": false, "feedback": "That helps your friend's brain, but not yours!" },
-					{ "text": "Guess until you get it right.", "isCorrect": false, "feedback": "Guessing isn't a strategy, it's a gamble." }
-				]
-			},
-			{
-				"question": "What happens if you click 'Practice Concept' but haven't read the lesson?",
-				"options": [
-					{ "text": "You will probably be confused by the questions.", "isCorrect": true, "feedback": "Precisely. The 'Content' section gives you the tools you need to solve the 'Practice'." },
-					{ "text": "The website will block you.", "isCorrect": false, "feedback": "We won't block you, but you might find the quiz much harder!" },
-					{ "text": "You win a prize.", "isCorrect": false, "feedback": "The only prize is knowledge, and you get that by reading!" },
-					{ "text": "The computer will crash.", "isCorrect": false, "feedback": "The site will run just fine, but your score might not!" }
-				]
-			},
-			{
-				"question": "How should you treat a mistake during a practice session?",
-				"options": [
-					{ "text": "As a sign that you aren't good at math.", "isCorrect": false, "feedback": "Wrong! Everyone makes mistakes—it's how we learn." },
-					{ "text": "As an opportunity to learn something new from the feedback.", "isCorrect": true, "feedback": "That's the 'Algebrator' way! Mistakes are just stepping stones." },
-					{ "text": "By deleting the website history.", "isCorrect": false, "feedback": "Your history is part of your progress. Keep going!" },
-					{ "text": "By ignoring the feedback and moving on.", "isCorrect": false, "feedback": "The feedback is there to help you, don't ignore your coach!" }
-				]
-			},
-			{
-				"question": "Why does this site give you feedback for 'Incorrect' answers?",
-				"options": [
-					{ "text": "To make you feel bad.", "isCorrect": false, "feedback": "Never! We want you to feel empowered." },
-					{ "text": "To explain the logic so you don't make the same mistake twice.", "isCorrect": true, "feedback": "Exactly. Understanding the 'Why' is more important than the 'What'." },
-					{ "text": "To fill up space on the screen.", "isCorrect": false, "feedback": "Every word on this site is designed to help you learn." },
-					{ "text": "Because the computer likes to talk.", "isCorrect": false, "feedback": "Computers don't have feelings, but they do have great logic to share!" }
-				]
-			},
-			{
-				"question": "What is the ultimate goal of using Algebrators?",
-				"options": [
-					{ "text": "To finish the website as fast as possible.", "isCorrect": false, "feedback": "Speed isn't the goal; understanding is!" },
-					{ "text": "To build a strong foundation for Algebra 1.", "isCorrect": true, "feedback": "You nailed it. We're building the 'bridge' to your future math success." },
-					{ "text": "To learn how to play video games.", "isCorrect": false, "feedback": "This is a math tool, though we try to make it just as engaging!" },
-					{ "text": "To avoid doing any homework.", "isCorrect": false, "feedback": "This *is* the work that makes homework easier!" }
-				]
-			}
-		]
-	},
-	{
-		"title": "What is Pre-Algebra? 🌉",
-		"content": "<h2>The Missing Piece</h2><p>In your earlier math years, you were a calculator. You were given 5 and 4, and you found 9. In Pre-Algebra, you become a <b>detective</b>. We start with the answer and one piece of the puzzle, then work backward to find the 'mystery number.'</p><p>We use <b>variables</b>—letters like <i>x</i>, <i>y</i>, or <i>n</i>—to stand in for these unknowns. The goal isn't just to find the answer, but to understand the <b>relationship</b> between numbers and how to balance an equation like a scale.</p>",
-		"practice": [
-			{
-				"question": "What does a variable represent in an equation?",
-				"options": [
-					{ "text": "A fixed number that never changes.", "isCorrect": false, "feedback": "Actually, variables represent values we don't know yet!" },
-					{ "text": "A letter standing in for an unknown value.", "isCorrect": true, "feedback": "Bingo! It's the 'mystery guest' of the math world." },
-					{ "text": "The title of the math lesson.", "isCorrect": false, "feedback": "Variables are parts of the math problem, not the title!" },
-					{ "text": "A type of advanced calculator.", "isCorrect": false, "feedback": "Nope, it's a symbol used within the math itself." }
-				]
-			},
-			{
-				"question": "If 8 + x = 15, what is the value of the variable x?",
-				"options": [
-					{ "text": "23", "isCorrect": false, "feedback": "You added 8 and 15. We need to find what adds TO 8 to make 15!" },
-					{ "text": "5", "isCorrect": false, "feedback": "8 + 5 is 13. You're getting closer!" },
-					{ "text": "7", "isCorrect": true, "feedback": "Great detective work! 8 + 7 = 15." },
-					{ "text": "10", "isCorrect": false, "feedback": "8 + 10 is 18. A bit too high." }
-				]
-			},
-			{
-				"question": "The word 'Algebra' comes from 'al-jabr,' which means what?",
-				"options": [
-					{ "text": "To multiply quickly.", "isCorrect": false, "feedback": "Not quite. Think about fixing or reuniting something." },
-					{ "text": "Restoration or reunion of broken parts.", "isCorrect": true, "feedback": "Exactly! Solving an equation is like putting a broken puzzle back together." },
-					{ "text": "The study of difficult shapes.", "isCorrect": false, "feedback": "That would be Geometry!" },
-					{ "text": "A secret code for scientists.", "isCorrect": false, "feedback": "It's a language for everyone, not a secret code." }
-				]
-			},
-			{
-				"question": "What is a main difference between Arithmetic and Algebra?",
-				"options": [
-					{ "text": "Algebra uses letters to find unknowns; Arithmetic uses known numbers.", "isCorrect": true, "feedback": "Spot on. You've graduated to the world of variables." },
-					{ "text": "Algebra is only for high schoolers.", "isCorrect": false, "feedback": "You're doing it right now! Anyone can learn it." },
-					{ "text": "Arithmetic doesn't use numbers.", "isCorrect": false, "feedback": "Arithmetic is all about numbers!" },
-					{ "text": "There is no difference at all.", "isCorrect": false, "feedback": "The introduction of variables is a huge difference!" }
-				]
-			},
-			{
-				"question": "In the expression 4z - 2, which part is the variable?",
-				"options": [
-					{ "text": "4", "isCorrect": false, "feedback": "That's the coefficient multiplying the variable." },
-					{ "text": "z", "isCorrect": true, "feedback": "Correct! 'z' is the letter holding the spot for a number." },
-					{ "text": "2", "isCorrect": false, "feedback": "That's a constant number." },
-					{ "text": "-", "isCorrect": false, "feedback": "That's the subtraction operator." }
-				]
-			},
-			{
-				"question": "Solve for y: y - 5 = 10",
-				"options": [
-					{ "text": "5", "isCorrect": false, "feedback": "5 - 5 is 0. We need it to equal 10!" },
-					{ "text": "15", "isCorrect": true, "feedback": "You got it! 15 - 5 = 10." },
-					{ "text": "10", "isCorrect": false, "feedback": "10 - 5 is 5." },
-					{ "text": "20", "isCorrect": false, "feedback": "20 - 5 is 15. Close!" }
-				]
-			},
-			{
-				"question": "Why do we use letters like 'x' instead of empty boxes or blanks?",
-				"options": [
-					{ "text": "Because it makes the math look harder.", "isCorrect": false, "feedback": "It's not about looking hard; it's about being useful!" },
-					{ "text": "To keep track of different mystery numbers at the same time.", "isCorrect": true, "feedback": "Yes! If you have two different unknowns, you can use 'x' and 'y'." },
-					{ "text": "Because we ran out of numbers.", "isCorrect": false, "feedback": "Numbers are infinite—we'll never run out!" },
-					{ "text": "Letters are easier to print on paper.", "isCorrect": false, "feedback": "Printers can handle boxes just fine; it's the logic that matters." }
-				]
-			},
-			{
-				"question": "Who is famous for writing the early books that defined Algebra?",
-				"options": [
-					{ "text": "Albert Einstein", "isCorrect": false, "feedback": "He was a physicist who used math, but didn't start Algebra." },
-					{ "text": "Al-Khwarizmi", "isCorrect": true, "feedback": "Correct! His work in the 9th century gave Algebra its name." },
-					{ "text": "Benjamin Franklin", "isCorrect": false, "feedback": "He was an inventor and politician, not the father of Algebra." },
-					{ "text": "Robert Recorde", "isCorrect": false, "feedback": "He invented the equals sign, but much later!" }
-				]
-			},
-			{
-				"question": "What does it mean to 'solve' an equation?",
-				"options": [
-					{ "text": "To find the specific value that makes the math sentence true.", "isCorrect": true, "feedback": "Exactly. You've balanced the scale!" },
-					{ "text": "To delete all the letters.", "isCorrect": false, "feedback": "We don't delete them; we find out what they are!" },
-					{ "text": "To add up all the numbers you see.", "isCorrect": false, "feedback": "Solving often requires subtraction, multiplication, or division too." },
-					{ "text": "To rewrite the problem in a different language.", "isCorrect": false, "feedback": "The language of math stays the same!" }
-				]
-			},
-			{
-				"question": "Which of these is a math 'equation'?",
-				"options": [
-					{ "text": "5 + 3", "isCorrect": false, "feedback": "That's just an expression. An equation needs an equals sign!" },
-					{ "text": "x + 2 = 10", "isCorrect": true, "feedback": "Correct! The equals sign makes it a complete 'math sentence' or equation." },
-					{ "text": "The number 7", "isCorrect": false, "feedback": "That's just a value." },
-					{ "text": "Algebra", "isCorrect": false, "feedback": "That's the name of the subject!" }
-				]
-			}
-		]
-	},
-	{
-		"title": "What We're Going to Learn 🗺️",
-		"content": "<h2>Your Roadmap to Success</h2><p>Pre-Algebra is a journey through four main 'territories':</p><ul><li><b>Prerequisites:</b> Reviewing the basics like order of operations so you have a strong foundation.</li><li><b>Number Sense:</b> Learning about negative numbers (integers) and where they live on the number line.</li><li><b>Proportions:</b> Understanding how numbers relate through ratios and percentages.</li><li><b>Equations:</b> The core of Algebra—learning the rules to move numbers around and solve for 'x'.</li></ul><p>Mastering these will make you unstoppable in Algebra 1 and beyond!</p>",
-		"practice": [
-			{
-				"question": "What is the very first focus of this course roadmap?",
-				"options": [
-					{ "text": "Building advanced rockets.", "isCorrect": false, "feedback": "Maybe later! First, we need the basics." },
-					{ "text": "Prerequisites and foundational skills.", "isCorrect": true, "feedback": "Correct. You can't build a house without a strong foundation." },
-					{ "text": "Learning to use a 3D printer.", "isCorrect": false, "feedback": "Cool, but not part of our math map." },
-					{ "text": "Memorizing the dictionary.", "isCorrect": false, "feedback": "Wrong subject! We focus on numbers and logic here." }
-				]
-			},
-			{
-				"question": "In which territory will we learn about negative numbers?",
-				"options": [
-					{ "text": "Number Sense & Integers", "isCorrect": true, "feedback": "Exactly! Negative numbers are a huge part of number sense." },
-					{ "text": "Geography", "isCorrect": false, "feedback": "Geography is about maps of the world, not the number line!" },
-					{ "text": "Addition only", "isCorrect": false, "feedback": "Negative numbers affect all operations." },
-					{ "text": "Spelling", "isCorrect": false, "feedback": "No spelling tests in Pre-Algebra!" }
-				]
-			},
-			{
-				"question": "Why is 'Prerequisites' a part of the learning plan?",
-				"options": [
-					{ "text": "To make the course take longer.", "isCorrect": false, "feedback": "We want you to learn efficiently, not slowly!" },
-					{ "text": "Because Algebra is built directly on basic arithmetic skills.", "isCorrect": true, "feedback": "Yes! If your basics are shaky, Algebra will feel much harder." },
-					{ "text": "Because it's easier than the other chapters.", "isCorrect": false, "feedback": "It's about being prepared, not just taking the easy way out." },
-					{ "text": "Because the computer requires it.", "isCorrect": false, "feedback": "The human brain requires it to build solid logic!" }
-				]
-			},
-			{
-				"question": "What is considered the 'core' or heart of Algebra?",
-				"options": [
-					{ "text": "Counting to one million.", "isCorrect": false, "feedback": "That's just a lot of counting!" },
-					{ "text": "Solving equations for unknown variables.", "isCorrect": true, "feedback": "You nailed it. Solving for 'x' is the ultimate goal." },
-					{ "text": "Writing long essays about math history.", "isCorrect": false, "feedback": "We focus more on solving than essay writing." },
-					{ "text": "Learning to draw perfect squares.", "isCorrect": false, "feedback": "Geometry is helpful, but equations are the heart of Algebra." }
-				]
-			},
-			{
-				"question": "Which of these is NOT one of the territories on our roadmap?",
-				"options": [
-					{ "text": "Proportions", "isCorrect": false, "feedback": "We definitely cover that!" },
-					{ "text": "Ancient Literature", "isCorrect": true, "feedback": "That's a different class entirely! We stick to math." },
-					{ "text": "The Number System", "isCorrect": false, "feedback": "This is a major stop on our journey." },
-					{ "text": "Equations", "isCorrect": false, "feedback": "This is the most important part of the map!" }
-				]
-			},
-			{
-				"question": "What does 'Number Sense' help you understand?",
-				"options": [
-					{ "text": "How numbers smell.", "isCorrect": false, "feedback": "Numbers don't have a scent!" },
-					{ "text": "The value and location of numbers on a number line.", "isCorrect": true, "feedback": "Correct. It helps you 'see' how numbers relate to each other." },
-					{ "text": "How to say numbers in different languages.", "isCorrect": false, "feedback": "That's linguistics, not number sense." },
-					{ "text": "The history of the number zero.", "isCorrect": false, "feedback": "Interesting, but not the focus of number sense." }
-				]
-			},
-			{
-				"question": "True or False: We will touch on basic Geometry in this course.",
-				"options": [
-					{ "text": "True", "isCorrect": true, "feedback": "Yes! We will look at things like perimeter and area using variables." },
-					{ "text": "False", "isCorrect": false, "feedback": "Actually, basic Geometry is an important application of Pre-Algebra." },
-					{ "text": "Only if you want extra credit.", "isCorrect": false, "feedback": "It's a standard part of the roadmap!" },
-					{ "text": "Only on Fridays.", "isCorrect": false, "feedback": "Math happens every day!" }
-				]
-			},
-			{
-				"question": "Which topic covers comparing values like ratios and percentages?",
-				"options": [
-					{ "text": "Prerequisites", "isCorrect": false, "feedback": "That's for the basics like PEMDAS." },
-					{ "text": "Proportions", "isCorrect": true, "feedback": "Exactly! Proportions are all about comparing relative sizes." },
-					{ "text": "Subtraction", "isCorrect": false, "feedback": "Subtraction finds differences, not ratios." },
-					{ "text": "Biology", "isCorrect": false, "feedback": "Wrong subject!" }
-				]
-			},
-			{
-				"question": "Solving for 'x' using addition and multiplication belongs to which category?",
-				"options": [
-					{ "text": "Equations", "isCorrect": true, "feedback": "Perfect. Equations are where we use rules to isolate the variable." },
-					{ "text": "Number Sense", "isCorrect": false, "feedback": "That's more about knowing number values." },
-					{ "text": "History", "isCorrect": false, "feedback": "History tells us who did it, but Equations teach us how to do it." },
-					{ "text": "Reading", "isCorrect": false, "feedback": "You have to read the problem, but it's an Equation logic!" }
-				]
-			},
-			{
-				"question": "By the end of this journey, you will be prepared for which course?",
-				"options": [
-					{ "text": "Algebra 1", "isCorrect": true, "feedback": "That's the prize! You'll be ready for high school level math." },
-					{ "text": "Kindergarten", "isCorrect": false, "feedback": "You're moving up, not backward!" },
-					{ "text": "Retiring from math forever.", "isCorrect": false, "feedback": "Nice try! Math is a skill for life." },
-					{ "text": "Chef School", "isCorrect": false, "feedback": "Unless you're using Algebra to scale recipes!" }
-				]
-			}
-		]
-	}
+    "title": "Welcome to Algebrators! 👋",
+    "content": "<h2>Mastering the Interface 🧭</h2><p>Welcome to Algebrators, your interactive bridge between basic arithmetic and the world of Algebra. This platform is designed not just to give you answers, but to help you build the 'math muscles' necessary for high school success. Before we dive into variables and equations, it is essential to understand how to navigate this environment. At the bottom of every lesson, you will encounter three primary navigation tools: the Back button, the Skip Practice button, and the Practice Concept button. Each serves a specific strategic purpose in your learning journey.</p><p>The <b>Back</b> button is your safety net. Learning math is rarely a linear process; often, you will find yourself halfway through a practice set only to realize you’ve forgotten a specific rule or definition. Clicking 'Back' allows you to re-read the instructional material without penalty. In Pre-Algebra, recursion—the act of going back and repeating a process—is a sign of a strong student, not a struggling one. Use this button whenever the logic of a question feels out of reach.</p><p>The <b>Skip Practice</b> button is a tool for efficiency. We recognize that every student starts at a different level. If you encounter a lesson covering a concept you have already mastered—perhaps you are already a pro at basic addition—this button allows you to move directly to the next lesson. However, use it wisely. Skipping practice means you are confident you can handle that concept when it reappears in more complex equations later on. If there is even a tiny bit of doubt, doing the practice is always the safer bet.</p><p>The <b>Practice Concept</b> button is where the real growth happens. When you click this, the lesson content is replaced by a series of interactive questions. This is your 'sandbox' where you can test your theories and see if your understanding holds up under pressure. The goal here isn't to get 100% on the first try; the goal is to engage in 'productive struggle,' which is the process of working through a difficult problem until the logic clicks into place.</p><p>One of the most important features of Algebrators is our <b>Instant Feedback System</b>. When you select an answer, the button will provide immediate visual and textual cues. A <b>Green</b> button indicates success, confirming that your logic was sound. A <b>Red</b> button indicates a misstep. While it can be frustrating to see red, it is actually your best teacher. The text that appears below the options is designed to coach you, explaining <i>why</i> that specific choice was incorrect so you can adjust your strategy for the next attempt.</p><p>To get the most out of these lessons, we highly recommend keeping <b>scratch paper</b> and a pencil nearby. While digital learning is convenient, the physical act of writing out steps helps move information from your short-term memory into your long-term memory. Many of the prerequisite lessons in Chapter 1 involve multi-step calculations where trying to hold all the numbers in your head can lead to 'silly mistakes' that have nothing to do with your actual math ability.</p><p>Finally, remember that Chapter 1 is all about the <b>Prerequisites</b>. We are going to move through ten essential lessons that form the foundation of everything to come. By the time you see the 'Chapter 1 Over' milestone, you will have a rock-solid base in operations, decimals, and the order of operations. This foundation is what separates students who find Algebra 'impossible' from those who find it like solving a fun puzzle. Let's get started!</p>",
+    "practice": [
+        {
+            "question": "If you are halfway through a quiz and realize you forgot the definition of a 'variable' from the text, which button should you use?",
+            "options": [
+                { "text": "Back", "isCorrect": true, "feedback": "Exactly. This allows you to review the lesson content so you can bring that knowledge back into the quiz." },
+                { "text": "Skip Practice", "isCorrect": false, "feedback": "If you've forgotten a definition, moving to the next lesson will only make things more confusing. Try looking at the previous material instead." },
+                { "text": "Refresh", "isCorrect": false, "feedback": "Refreshing might clear your current progress in the quiz. There is a specific button designed to let you review the text." },
+                { "text": "Practice Concept", "isCorrect": false, "feedback": "You are already in the practice mode! You need a way to see the instructional text again." }
+            ]
+        },
+        {
+            "question": "Which scenario best justifies using the 'Skip Practice' button?",
+            "options": [
+                { "text": "The questions are taking too long to solve.", "isCorrect": false, "feedback": "If they take a long time, it usually means your brain is doing the heavy lifting it needs to improve. Fast isn't always better." },
+                { "text": "You missed the first three questions and feel frustrated.", "isCorrect": false, "feedback": "Frustration is often a sign of 'productive struggle.' Instead of skipping, try reading the feedback to see where the logic broke down." },
+                { "text": "You have already mastered the topic and want to maintain your learning momentum.", "isCorrect": true, "feedback": "Correct. If you can do the math in your sleep, use this to keep your pace up and move to more challenging territory." },
+                { "text": "You want to see what the 'Chapter Over' screen looks like.", "isCorrect": false, "feedback": "You'll get there soon enough! Skipping just to finish won't help you when the final exam arrives." }
+            ]
+        },
+        {
+            "question": "When an answer choice turns red, how should you use the feedback provided?",
+            "options": [
+                { "text": "Ignore it and try the next button immediately.", "isCorrect": false, "feedback": "If you don't read the 'why,' you might make the same mistake on the next question. Take a second to coach yourself." },
+                { "text": "Use it as a hint to adjust your logic before your next attempt.", "isCorrect": true, "feedback": "Yes! The feedback is there to steer you back onto the right path, not just to tell you that you're wrong." },
+                { "text": "Write down the feedback and move to a different website.", "isCorrect": false, "feedback": "No need to leave! The mistake is just part of the process of getting it right on this site." },
+                { "text": "Assume you aren't good at the subject.", "isCorrect": false, "feedback": "Mistakes are proof that you are trying to learn something new. Everyone—even pros—hits red buttons." }
+            ]
+        },
+        {
+            "question": "Why does the lesson emphasize using scratch paper even though the course is digital?",
+            "options": [
+                { "text": "To keep your hands busy while you read.", "isCorrect": false, "feedback": "It's more about what the writing does for your brain than just keeping your hands busy." },
+                { "text": "To practice your handwriting for other classes.", "isCorrect": false, "feedback": "Handwriting is great, but the goal here is to keep your math steps organized." },
+                { "text": "Because digital screens make you forget numbers faster.", "isCorrect": false, "feedback": "It's not the screen's fault; it's that human memory can only hold a few pieces of information at once!" },
+                { "text": "To reduce the 'cognitive load' on your brain by tracking multi-step problems externally.", "isCorrect": true, "feedback": "Spot on. By writing it down, your brain is free to focus on the logic instead of just remembering the digits." }
+            ]
+        },
+        {
+            "question": "What is 'Productive Struggle'?",
+            "options": [
+                { "text": "Doing the same easy problems over and over.", "isCorrect": false, "feedback": "If it's easy, you aren't struggling! Struggle happens when the work is right at the edge of what you know." },
+                { "text": "The process of working through difficulty to build deeper understanding.", "isCorrect": true, "feedback": "Exactly. It’s like exercise for your brain—it only gets stronger when there is some resistance." },
+                { "text": "Getting every single question right without thinking.", "isCorrect": false, "feedback": "That's just demonstrating what you already know, not learning something new." },
+                { "text": "Studying for 10 hours without taking a break.", "isCorrect": false, "feedback": "That's just exhaustion! Productive struggle is about the quality of the effort, not just the time." }
+            ]
+        },
+        {
+            "question": "If you have 10 prerequisite lessons to complete and you have just finished Lesson 1, how many do you have left? (Use the feedback if you're stuck!)",
+            "options": [
+                { "text": "9", "isCorrect": true, "feedback": "Correct. You subtracted the 1 finished lesson from the total of 10." },
+                { "text": "8", "isCorrect": false, "feedback": "Wait, check your count. If the total is 10 and you take away only the 1 you just finished, the result is..." },
+                { "text": "11", "isCorrect": false, "feedback": "Subtraction makes the remaining number smaller! If you start with 10 and finish 1, the number of lessons left is 10 minus 1, which equals...?" },
+                { "text": "7", "isCorrect": false, "feedback": "You might be thinking too far ahead! Just subtract the 1 lesson you've completed from the total of 10." }
+            ]
+        },
+        {
+            "question": "What does a 'Green' button signify about your current progress?",
+            "options": [
+                { "text": "That you should stop and take a break.", "isCorrect": false, "feedback": "You can if you want, but green is usually an invitation to keep that momentum going!" },
+                { "text": "That the website is loading the next page.", "isCorrect": false, "feedback": "Not quite. Green is specific to your answer choice." },
+                { "text": "That your logical path for that specific question was correct.", "isCorrect": true, "feedback": "Yes! It’s a confirmation that you’ve mastered that specific piece of the puzzle." },
+                { "text": "That the question was a trick.", "isCorrect": false, "feedback": "No tricks—just a job well done." }
+            ]
+        },
+        {
+            "question": "Which of these is the most 'strategic' way to use this website?",
+            "options": [
+                { "text": "Clicking 'Skip Practice' on every page until you reach the end.", "isCorrect": false, "feedback": "You'll reach the end quickly, but you won't have the skills to solve the actual Algebra problems waiting there." },
+                { "text": "Reading the text, attempting the practice, and carefully reading the feedback on mistakes.", "isCorrect": true, "feedback": "This is the 'Mastery' approach. It takes longer but ensures you actually learn the material." },
+                { "text": "Only doing the practice and never reading the lesson text.", "isCorrect": false, "feedback": "The practice is a test of the text! If you don't read the 'how-to' first, the practice will be much harder." },
+                { "text": "Waiting for a teacher to tell you which button to click.", "isCorrect": false, "feedback": "This site is designed for YOU to be the driver. Take control of your own learning path!" }
+            ]
+        },
+        {
+            "question": "In the phrase 'Algebra is a language of logic,' what does 'logic' refer to?",
+            "options": [
+                { "text": "The history of where numbers came from.", "isCorrect": false, "feedback": "That's history. Logic is about the 'rules' of how things work." },
+                { "text": "A specific type of calculator.", "isCorrect": false, "feedback": "Logic is something your brain does, not a piece of hardware." },
+                { "text": "A set of consistent rules used to solve problems step-by-step.", "isCorrect": true, "feedback": "Exactly. Logic is the 'why' and the 'how' that makes math work the same way every time." },
+                { "text": "The ability to memorize formulas quickly.", "isCorrect": false, "feedback": "Memorization is just repeating; logic is understanding why the formula works in the first place." }
+            ]
+        },
+        {
+            "question": "What happens after you complete the 10th prerequisite lesson?",
+            "options": [
+                { "text": "The website deletes your account.", "isCorrect": false, "feedback": "We definitely want to keep you around! You're just getting to the good stuff." },
+                { "text": "You are prompted to start over from Lesson 1.", "isCorrect": false, "feedback": "Only if you want a total review. Otherwise, you're ready for the next level." },
+                { "text": "You reach a 'Chapter Over' milestone and prepare for Chapter 2.", "isCorrect": true, "feedback": "Correct. You've built the foundation and are ready to move from Prerequisites to the Number System." },
+                { "text": "You receive a physical trophy in the mail.", "isCorrect": false, "feedback": "The trophy is the knowledge in your brain (though a real one would be cool)!" }
+            ]
+        }
+    ]
+}
 ]
