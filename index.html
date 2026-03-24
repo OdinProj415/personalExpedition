@@ -20,13 +20,17 @@
     <!-- Use document.getelementbyid("welcome") to replace with google account username-->
     <h1 id="welcome" class="vend-sans-font">Welcome!</h1>
     <script>
+        const pracorless = localStorage.getItem("pracorless");
+        const li = localStorage.getItem("li");
+        if (pracorless == "practice") {
+            window.location.href = `./lessons/practice.html?li=${parseInt(li, 10)}`;
+        } else if (pracorless == "lesson") {
+            window.location.href = `./lessons/template.html?li=${parseInt(li, 10)}`;
+        };
         console.log("I got here");
         let welcome = document.getElementById("welcome");
         console.log("I got here");
         const requestedUserInfo = [ 
-            {id:"username", label:"Username:", type:"text", default:"JohnDoe123"},
-            {id:"password", label:"Password:", type:"password", default:"myPassword123!"},
-            {id:"email", label:"Email Address:", type:"email", default:"account@domain.tld"},
             {id:"name", label:"Name:", type:"text", default:"JohnDoe"}
         ];
         /* Make the div surrounding the form */

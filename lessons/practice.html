@@ -90,11 +90,14 @@
     <button onclick="window.location.href = './template.html?li=' + new URLSearchParams(window.location.search).get('li')" class="button" id="back">Back to Lesson</button>
     <button disabled class="button" id="next-question">Next Question</button>
     <script>
+        localStorage.clear();
+        localStorage.setItem("pracorless","practice");
         const urlvars = new URLSearchParams(window.location.search);
         const lessonIndex = parseInt(urlvars.get("li"), 10);
+        localStorage.setItem("li", lessonIndex.toString(10));
         if (isNaN(lessonIndex)) {
             alert("Lesson number is not valid. Going back to lesson 1.");
-            window.location.href = "./practice.html?li=0";
+            window.location.href = "./template.html?li=0";
         }
         function shuffle() {
             const shuffled = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]; 
@@ -130,12 +133,12 @@
                 questions.b.innerText = `b)\u00A0\u00A0${page.practice[questionIndex].options[1].text}`;
                 questions.c.innerText = `c)\u00A0\u00A0${page.practice[questionIndex].options[2].text}`;
                 questions.d.innerText = `d)\u00A0\u00A0${page.practice[questionIndex].options[3].text}`;
-                if (page.practice.length <= questionIndex + 1) {
+                if (qorder.length <= 4) {
                     nextQuestion.innerText = "Next Lesson";
                     nextQuestion.classList.add("short");
                 } else {
                     nextQuestion.innerText = "Next Question";
-                    nextQuestion.classList.remove("short")
+                    nextQuestion.classList.remove("short");
                 };
             });
         }

@@ -72,11 +72,13 @@
     <button class="button content-block" id="skip">Skip Practice</button>
     <button class="button content-block" id="practice"> &starf; Practice Concept &starf;</button>
     <script>
-        let pageHTML;
         let titledoc = document.getElementById("title");
         let lessondoc = document.getElementById("content-block");
+        localStorage.clear();
+        localStorage.setItem("pracorless","lesson");
         const urlvars = new URLSearchParams(window.location.search);
         const lessonIndex = parseInt(urlvars.get("li"), 10);
+        localStorage.setItem("li", lessonIndex.toString(10));
         async function loadPage(lessonIndex) {
             try {
                 const response = await fetch("prealgebra.json");
@@ -94,18 +96,17 @@
         function redirect(lessonIndex) {
             console.log(lessonIndex);
             if (!(lessonIndex >= 0 && lessonIndex <= 10)) {
-                alert("No more lessons in this direction!");
+                document.write("Redirecting...");
                 lessonIndex = 0;
-                alert("Redirecting to first lesson...");
             }
             window.location.href = `./template.html?li=${lessonIndex}`;
         }
         function doPractice(lessonIndex) {
             console.log(lessonIndex);
-            if (!(lessonIndex >= 0 && lessonIndex <= 10)) {
-                alert("No more lessons in this direction!");
+            if (lessonIndex < 0 || lessonIndex > 3) {
                 lessonIndex = 0;
-                alert("Redirecting to first lesson...");
+                document.write("Redirecting to first lesson...");
+                window.location.href = `./template.html?li=0`;
             }
             window.location.href = `./practice.html?li=${lessonIndex}`;
         };
