@@ -6,19 +6,36 @@
     <title>Document</title>
 </head>
 <body>
-    <input oninput="login()" placeholder="username">
-    <button> Start From Scratch</button>
+    <h1 id="title">Welcome to Algebrators</h1>
+    <input id="login" onkeydown="if (event.key==='Enter') { event.preventDefault(); login(); }" placeholder="username"> <br>
+    <button onclick="login()">Login</button>
+    <button onclick="changeThisToHoweverYouRedirectToTheFirstLesson()"> Start From Scratch </button>
     
 <script>
     async function login() {
-        const users = await fetch('users.json');
+        const users = await fetch('../users.json');
         const userData = await users.json();
-        const username = document.getElementById("login").value;
+        let username;
+        if (localStorage.getItem("username") != null) {
+            username = localStorage.getItem("username");
+        } else {
+            username = document.getElementById("login").value;
+            localStorage.setItem("username", username);
+        };
+        console.log(username + " is trying to log in");
         if (userData[username]) {
             const lastLesson = userData[username].lastLesson, wasLesson = userData[username].wasLesson;
-            if (lastLesson !== undefined && wasLesson !== undefined) {
+            if (lastLesson != undefined && wasLesson != undefined) {
                 document.createElement("button",{onclick: `redirect(${username})`, innerText: "Continue where you left off"});
+                document.getElementById("title").innerText = "Welcome to Algebrators, " + username;
             }
+        } else {
+            userData[username] = {
+                lastLesson: 0,
+                wasLesson: true
+            };
+            const fs = require('fs');
+            fs.writeFileSync('../users.json', JSON.stringify(userData, null, 2));
         }
 
     }    
