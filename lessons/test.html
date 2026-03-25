@@ -6,12 +6,22 @@
     <title>Document</title>
 </head>
 <body>
-    <button onclick="test()">Executes Your Function</button>
+    <input oninput="login()" placeholder="username">
+    <button> Start From Scratch</button>
     
 <script>
-        function test() {
-            document.write("what is up my bro");
+    async function login() {
+        const users = await fetch('users.json');
+        const userData = await users.json();
+        const username = document.getElementById("login").value;
+        if (userData[username]) {
+            const lastLesson = userData[username].lastLesson, wasLesson = userData[username].wasLesson;
+            if (lastLesson !== undefined && wasLesson !== undefined) {
+                document.createElement("button",{onclick: `redirect(${username})`, innerText: "Continue where you left off"});
+            }
         }
+
+    }    
 </script>
 </body>
 </html>

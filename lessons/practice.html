@@ -13,187 +13,23 @@
 
     <title>Algebrators</title>
 
-    <style>
-        #title {
-            font-family: "Vend Sans", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: 400;
-            font-style: normal;
-        }
-
-        .button {
-            background-color: #f7f7f7;
-            border-radius: 8px;
-            border-top: 1px solid #e0e0e0;
-            border-left: 1px solid #e0e0e0;
-            border-right: 5px solid #aaa;
-            border-bottom: 5px solid #aaa;
-            font-family: "Chilanka", "Comic Sans MS", "Apple Chancery", "Bradley Hand", cursive, sans-serif;
-            font-weight: 600;
-            line-height: 1.6;
-            color: #333;
-            display: block;
-            padding: 8px;
-            margin-top: 12px;
-            max-width: 450px;
-            width: 47%; 
-            text-align: left;
-        }
-
-        #back {
-            display: inline-block;
-            width: 114.7px;
-        }
-
-        #next-question {
-            display: inline-block;
-            width: 111.4px;
-            margin-left: calc(min(47%, 450px) - calc(226.1px + 5.334px));
-        }
-
-        #next-question:disabled {
-            background-color: #ddd;
-            border-color: #ccc;
-            color: #999;
-            cursor: not-allowed;
-        }
-
-        #next-question.short {
-           width:100px;
-           margin-left: calc(min(47%, 450px) - 100px);
-        }
-
-        .correct {
-            background-color: #aaeaaa;
-            border-color: #13845d;
-            color: #046124;
-        }
-
-        .incorrect {
-            background-color: #eaaaaa;
-            border-color: #841313;
-            color: #610404;
-        }
-    </style>
+    <link rel="stylesheet" href="practice.css">
 </head>
 <body>
     <h1 id="title">Loading Page Title...</h1>
     <p id="question">Loading Question</p>
-    <button class="button" id="1">Loading...</button><br>
+    <button class="button" id="1" onclick="verify(0, 'a')">Loading...</button><br>
     <p id="feedback-a"></p><br>
-    <button class="button" id="2">Loading...</button><br>
+    <button class="button" id="2" onclick="verify(1, 'b')">Loading...</button><br>
     <p id="feedback-b"></p><br>
-    <button class="button" id="3">Loading...</button><br>
+    <button class="button" id="3" onclick="verify(2, 'c')">Loading...</button><br>
     <p id="feedback-c"></p><br>
-    <button class="button" id="4">Loading...</button><br>
+    <button class="button" id="4" onclick="verify(3, 'd')">Loading...</button><br>
     <p id="feedback-d"></p>
     <button onclick="window.location.href = './template.html?li=' + new URLSearchParams(window.location.search).get('li')" class="button" id="back">Back to Lesson</button>
     <button disabled class="button" id="next-question">Next Question</button>
-    <script>
-        localStorage.clear();
-        localStorage.setItem("pracorless","practice");
-        const urlvars = new URLSearchParams(window.location.search);
-        const lessonIndex = parseInt(urlvars.get("li"), 10);
-        localStorage.setItem("li", lessonIndex.toString(10));
-        if (isNaN(lessonIndex)) {
-            alert("Lesson number is not valid. Going back to lesson 1.");
-            window.location.href = "./template.html?li=0";
-        }
-        function shuffle() {
-            const shuffled = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]; 
-            let currentIndex = 10, randomIndex;
-            while (currentIndex !== 0) {
-                randomIndex = Math.floor(Math.random() * currentIndex);
-                currentIndex--;
-                [shuffled[currentIndex], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[currentIndex]];
-            }
-            return shuffled;
-        }
-        let qorder = shuffle();
-        let isAnswered = false, questionIndex = 0;
-        async function loadPage(lessonIndex) {
-            try {
-                const response = await fetch("prealgebra.json");
-                const course = await response.json();
-                const page = course[lessonIndex];
-                return page;
-            } catch (error) {
-                console.error("Error!", error);
-            }
-        }
-        function displayPage() {
-            qorder.shift();
-            const questionIndex = qorder[0];
-            page = loadPage(lessonIndex);
-            page.then((page) => {
-                clearAll();
-                title.innerText = page.title;
-                question.innerText = page.practice[questionIndex].question;
-                questions.a.innerText = `a)\u00A0\u00A0${page.practice[questionIndex].options[0].text}`;
-                questions.b.innerText = `b)\u00A0\u00A0${page.practice[questionIndex].options[1].text}`;
-                questions.c.innerText = `c)\u00A0\u00A0${page.practice[questionIndex].options[2].text}`;
-                questions.d.innerText = `d)\u00A0\u00A0${page.practice[questionIndex].options[3].text}`;
-                if (qorder.length <= 4) {
-                    nextQuestion.innerText = "Next Lesson";
-                    nextQuestion.classList.add("short");
-                } else {
-                    nextQuestion.innerText = "Next Question";
-                    nextQuestion.classList.remove("short");
-                };
-            });
-        }
-        function clearAll(){
-                questions.a.classList.remove("correct", "incorrect");
-                questions.b.classList.remove("correct", "incorrect");
-                questions.c.classList.remove("correct", "incorrect");
-                questions.d.classList.remove("correct", "incorrect");
-                feedback.a.innerText = "";
-                feedback.b.innerText = "";
-                feedback.c.innerText = "";
-                feedback.d.innerText = "";
-        }
-        let verify = function (number, letter) {
-            questionIndex = qorder[0];
-            clearAll();
-            page.then((page) => {
-                if (page.practice[questionIndex].options[number].isCorrect) {
-                    questions[letter].classList.add("correct");
-                    isAnswered = true;
-                    nextQuestion.disabled = false;
-                } else {
-                    questions[letter].classList.add("incorrect");
-                }
-                feedback[letter].innerText = page.practice[questionIndex].options[number].feedback;
-            });
-        };
-        let questions = {}, feedback = {};
-        const title = document.getElementById("title"), question = document.getElementById("question"), nextQuestion = document.getElementById("next-question");
-        questions.a = document.getElementById("1");
-        questions.b = document.getElementById("2");
-        questions.c = document.getElementById("3");
-        questions.d = document.getElementById("4");
-        feedback.a = document.getElementById("feedback-a");
-        feedback.b = document.getElementById("feedback-b");
-        feedback.c = document.getElementById("feedback-c");
-        feedback.d = document.getElementById("feedback-d");
-        displayPage();
-        questions.a.addEventListener("click", () => verify(0, "a"));
-        questions.b.addEventListener("click", () => verify(1, "b"));
-        questions.c.addEventListener("click", () => verify(2, "c"));
-        questions.d.addEventListener("click", () => verify(3, "d"));
-        nextQuestion.addEventListener("click", () => {
-            loadPage(lessonIndex).then((page) => {
-                if (qorder.length > 1) {
-                    displayPage();
-                    isAnswered = false;
-                    nextQuestion.disabled = true;
-                } else {
-                    window.location.href = `./template.html?li=${lessonIndex+1}`;
-                }
-            });
-        });
-    </script>
 
+    <script src="./practice.js"></script>
 </body>
 
 </html>
