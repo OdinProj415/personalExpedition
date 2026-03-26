@@ -23,8 +23,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          # Automatically caches npm dependencies to speed up future runs
-          cache: 'npm'
 
       - name: Install dependencies
         # 'npm ci' is faster and more reliable than 'npm install' in CI environments
