@@ -1,7 +1,7 @@
 // Async function to load page data from JSON file
 async function loadPage(lessonIndex) {
     try {
-        const response = await fetch("prealgebra.json");
+        const response = await fetch("../courses/prealgebra.json");
         const course = await response.json();
         const page = course[lessonIndex];
         console.log(`Content: \n\n ${page.content} \n\n\nTitle: \n\n ${page.title}`);
@@ -21,7 +21,7 @@ function redirect(lessonIndex) {
         document.write("Redirecting...");
         lessonIndex = 0;
     }
-    window.location.href = `./template.html?li=${lessonIndex}`;
+    window.location.href = `./lesson.html?li=${lessonIndex}`;
 }
 
 // Function to start practice for the lesson
@@ -30,7 +30,7 @@ function doPractice(lessonIndex) {
     if (lessonIndex < 0 || lessonIndex > 3) {
         lessonIndex = 0;
         document.write("Redirecting to first lesson...");
-        window.location.href = `./template.html?li=0`;
+        window.location.href = `./lesson.html?li=0`;
     }
     window.location.href = `./practice.html?li=${lessonIndex}`;
 }

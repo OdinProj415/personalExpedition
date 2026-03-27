@@ -121,7 +121,7 @@ nextQuestion.addEventListener("click", () => {
             isAnswered = false;
             nextQuestion.disabled = true;
         } else {
-            window.location.href = `./template.html?li=${lessonIndex+1}`;
+            window.location.href = `./lesson.html?li=${lessonIndex+1}`;
         }
     });
 });
