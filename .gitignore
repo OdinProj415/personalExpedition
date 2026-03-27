@@ -1,3 +1,5 @@
 # Ignore Chrome/Puppeteer cache folders
 *~/.cache/
 user-data/
+/backend/node_modules/
+/backend/.env
