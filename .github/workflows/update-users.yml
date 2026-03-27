@@ -18,7 +18,8 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          # Change 20 to 24 to stay ahead of the deprecation
+          node-version: 24
 
       - name: Run Update Script
         run: node update.js '${{ github.event.inputs.userData }}'
