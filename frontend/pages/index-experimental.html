@@ -26,7 +26,7 @@
         if (userData[username]) {
             const lastLesson = userData[username].lastLesson, wasLesson = userData[username].wasLesson;
             if (lastLesson != undefined && wasLesson != undefined) {
-                document.createElement("button",{onclick: `redirect(${username})`, innerText: "Continue where you left off"});
+                document.createElement("button",{onclick: `redirect(${lastLesson}, ${wasLesson})`, innerText: "Continue where you left off"});
                 document.getElementById("title").innerText = "Welcome to Algebrators, " + username;
             }
         } else {
@@ -38,6 +38,13 @@
             fs.writeFileSync('../users.json', JSON.stringify(userData, null, 2));
         }
 
+    }
+    function redirect(lastLesson, wasLesson) {
+        if (wasLesson) {
+            window.location.href = `../lesson.html?li=${lastLesson}`;
+        } else {
+            window.location.href = `./practice.html?li=${lastLesson}`;
+        }
     }    
 </script>
 </body>
